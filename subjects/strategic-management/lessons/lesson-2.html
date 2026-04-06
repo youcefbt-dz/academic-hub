@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحور الثاني: تحديد عناصر الاتجاه الإستراتيجي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #b48c36;
+            --slate-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--slate-bg);
+            color: #1e293b;
+        }
+        .gold-text { color: var(--gold-primary); }
+        .gold-bg { background-color: var(--gold-primary); }
+        
+        .content-card {
+            background: white;
+            border-radius: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sticky-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #f1f5f9;
+            border-radius: 2px;
+            margin-top: 8px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--gold-primary);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="sticky-nav sticky top-0 z-50 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../../../index.html" class="flex items-center gap-2 text-slate-800 font-bold hover:gold-text transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                العودة للرئيسية
+            </a>
+            <div class="text-[10px] font-black text-slate-400 bg-slate-100 px-3 py-1 rounded-full uppercase tracking-widest">
+                المحور الثاني
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="py-16 bg-white border-b border-slate-100 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-4xl relative z-10 text-center md:text-right">
+            <div class="inline-block px-4 py-1.5 rounded-full gold-bg text-white text-[11px] font-bold mb-6">
+                مرحلة التخطيط والتموضع
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+                تحديد عناصر <span class="gold-text">الاتجاه الإستراتيجي</span>
+            </h1>
+            <p class="text-slate-500 leading-relaxed text-lg md:text-xl max-w-2xl">
+                بناء بوصلة المؤسسة من خلال صياغة الرؤية، الرسالة، القيم والأهداف الإستراتيجية التي تضمن استمرارية النجاح.
+            </p>
+        </div>
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-amber-50 rounded-full blur-3xl opacity-50 -mr-20 -mt-20"></div>
+    </header>
+
+    <main class="py-16 container mx-auto px-6 max-w-4xl">
+        
+        <!-- 1. Strategic Vision -->
+        <section class="mb-12">
+            <div class="content-card p-8 hover:shadow-xl transition-shadow">
+                <div class="section-icon bg-amber-50 text-amber-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-extrabold text-slate-900 mb-4">أولاً: الرؤية الإستراتيجية (Strategic Vision)</h2>
+                <div class="bg-amber-50/50 rounded-2xl p-6 border-r-4 border-amber-500 mb-8">
+                    <p class="text-slate-700 leading-relaxed text-lg">
+                        تُمثل "الحلم" أو "الصورة الذهنية" التي تطمح المؤسسة للوصول إليها خلال (5-10) سنوات القادمة. تجيب على السؤال: <span class="font-bold gold-text">ماذا نريد أن نصبح؟</span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <h4 class="font-bold mb-2 flex items-center gap-2">🎯 التركيز</h4>
+                        <p class="text-sm text-slate-600">تركز على المستقبل البعيد وتضع الوجهة العامة للمنظمة.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <h4 class="font-bold mb-2 flex items-center gap-2">✨ الإلهام</h4>
+                        <p class="text-sm text-slate-600">يجب أن تكون محفزة للموظفين وتخلق شعوراً بالهدف المشترك.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Strategic Mission -->
+        <section class="mb-12">
+            <div class="content-card p-8 hover:shadow-xl transition-shadow border-blue-100">
+                <div class="section-icon bg-blue-50 text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-extrabold text-slate-900 mb-4">ثانياً: الرسالة (Mission)</h2>
+                <p class="text-slate-600 mb-6">الرسالة هي دستور العمل اليومي؛ فهي تحدد طبيعة العمل، العملاء، والأسواق. تجيب على السؤال: <span class="font-bold text-blue-600">لماذا نحن موجودون الآن؟</span></p>
+                
+                <div class="space-y-4">
+                    <h4 class="font-bold text-slate-800">مكونات الرسالة الفعالة:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">تحديد العملاء</span>
+                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">المنتجات/الخدمات</span>
+                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">النطاق الجغرافي</span>
+                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">التكنولوجيا</span>
+                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">الفلسفة والقيم</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Values & Goals -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <!-- Values -->
+            <div class="content-card p-8 bg-slate-900 text-white">
+                <div class="section-icon bg-white/10 text-amber-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">القيم (Values)</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    هي المبادئ الأخلاقية والقواعد السلوكية التي تحكم تعاملات المؤسسة مع الموظفين والعملاء والمجتمع (مثل: النزاهة، الشفافية، الابتكار).
+                </p>
+            </div>
+
+            <!-- Goals -->
+            <div class="content-card p-8 border-amber-200">
+                <div class="section-icon bg-amber-50 text-amber-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">الأهداف (Goals)</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                    تحويل الرسالة إلى مستهدفات محددة. يجب أن تكون أهدافاً <span class="font-bold gold-text">SMART</span> (محددة، قابلة للقياس، قابلة للتحقيق، واقعية، ومقيدة بزمن).
+                </p>
+            </div>
+        </div>
+
+        <!-- Summary & Call to action -->
+        <div class="p-8 rounded-[2rem] bg-gradient-to-br from-amber-500 to-amber-700 text-white text-center">
+            <h4 class="text-xl font-bold mb-4">اختبر معلوماتك في هذا المحور</h4>
+            <p class="text-amber-100 text-sm mb-8 max-w-md mx-auto">هل يمكنك التفريق بوضوح بين الرؤية والرسالة في مؤسستك الحالية؟</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-white text-amber-700 px-8 py-3 rounded-2xl font-bold hover:bg-slate-100 transition-all">تحميل ملخص المحور PDF</button>
+                <a href="lesson-3.html" class="bg-amber-800/30 backdrop-blur-sm border border-white/20 px-8 py-3 rounded-2xl font-bold hover:bg-amber-800/50 transition-all">المحور التالي: التحليل البيئي</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-12 text-center border-t border-slate-100">
+        <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">مقياس الإدارة الاستراتيجية - جامعة باتنة 1</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن المادة — الإدارة الاستراتيجية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #b48c36;
+            --slate-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--slate-bg);
+            color: #1e293b;
+        }
+        .gold-text { color: var(--gold-primary); }
+        .gold-bg { background-color: var(--gold-primary); }
+        .gold-light-bg { background-color: #fcf9f2; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .content-card {
+            background: white;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../index.html" class="text-xl font-extrabold tracking-tight text-slate-800">
+                <span>إدارة <span class="gold-text">استراتيجية</span></span>
+            </a>
+            <ul class="hidden md:flex gap-8 text-[11px] font-extrabold text-slate-500 uppercase tracking-widest">
+                <li><a href="../index.html" class="hover:text-amber-600 transition-colors">الرئيسية</a></li>
+                <li><a href="about.html" class="gold-text">عن المقياس</a></li>
+                <li><a href="roadmap.html" class="hover:text-amber-600 transition-colors">خارطة الطريق</a></li>
+                <li><a href="contact.html" class="hover:text-amber-600 transition-colors">التواصل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="relative py-20 bg-white overflow-hidden border-b border-slate-50">
+        <div class="container relative z-10 mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gold-light-bg border border-amber-100 gold-text text-[11px] font-bold mb-6">
+                نبذة
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
+                عن هذا <span class="gold-text">الموقع</span>
+            </h1>
+            <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                موقع مفتوح لزملاء السنة الثالثة إدارة مالية — يضم ملخصات مبسطة لمادة الإدارة الاستراتيجية.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16 container mx-auto px-6 max-w-4xl">
+        <div class="content-card p-8 md:p-12 relative overflow-hidden">
+            <!-- Decorative Icon -->
+            <div class="absolute -top-10 -left-10 w-40 h-40 gold-light-bg rounded-full opacity-50"></div>
+            
+            <div class="relative z-10">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-1 bg-amber-500 rounded-full"></div>
+                    <h2 class="text-xl font-bold text-slate-800">رسالة الموقع</h2>
+                </div>
+                
+                <div class="text-slate-600 leading-loose text-lg text-justify">
+                    هذا الموقع أُعدّ بشكل شخصي لمساعدة الزملاء على مراجعة مادة 
+                    <strong class="text-slate-900 border-b-2 border-amber-200">الإدارة الاستراتيجية</strong> 
+                    بطريقة سهلة وسريعة. المحتوى مختصر ومنظم حسب المحاور الرسمية للمقياس المقررة لجامعة باتنة 1.
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full gold-bg"></span>
+                            محتوى موجه
+                        </h3>
+                        <p class="text-sm text-slate-500">تم التركيز على النقاط الجوهرية التي تهم الطالب في الامتحانات.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full gold-bg"></span>
+                            تصفح سريع
+                        </h3>
+                        <p class="text-sm text-slate-500">تصميم متوافق مع الهواتف والحواسيب للوصول للمعلومة في أي وقت.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-slate-100 text-center">
+        <p class="text-slate-400 text-xs font-bold">بُني بمحبة لزملاء الدراسة — جامعة باتنة</p>
+    </footer>
+
+</body>
+</html>
