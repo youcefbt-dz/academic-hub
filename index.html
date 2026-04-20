@@ -1,260 +1,1539 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> جامعة باتنة 1 كلية العلوم الاقتصادية والتجارية وعلوم التسيير - إدارة استراتيجية </title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold-primary: #b48c36;
-            --gold-hover: #96732a;
-            --slate-bg: #f8fafc;
-        }
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--slate-bg);
-            color: #1e293b;
-            overflow-x: hidden;
-        }
-        .gold-text { color: var(--gold-primary); }
-        .gold-bg { background-color: var(--gold-primary); }
-        .gold-light-bg { background-color: #fcf9f2; }
-        
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الجباية الجزائرية — دليل شامل</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0a;
+    --cream: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-light: #e8d08a;
+    --gold-pale: #f7eecf;
+    --rust: #b5451b;
+    --teal: #1a6b6b;
+    --teal-light: #e6f4f4;
+    --purple: #4a2d6b;
+    --purple-light: #ede6f8;
+    --card-bg: #fffdf8;
+    --border: #e2d9c5;
+  }
 
-        .axis-item {
-            background: white;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            align-items: center;
-            padding: 1.25rem;
-            border-radius: 1.25rem;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-        
-        .axis-item:hover {
-            border-color: var(--gold-primary);
-            box-shadow: 0 10px 25px -5px rgba(180, 140, 54, 0.15);
-            transform: translateY(-3px) scale(1.02);
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .axis-item::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: var(--gold-primary);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
 
-        .axis-item:hover::after {
-            opacity: 1;
-        }
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
 
-        .icon-small {
-            width: 42px;
-            height: 42px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0.85rem;
-            font-weight: 800;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridShift 20s linear infinite;
+  }
 
-        .swot-container {
-            position: absolute;
-            inset: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            z-index: 0;
-        }
-        
-        .swot-quadrant {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+  @keyframes gridShift {
+    from { transform: translateY(0); }
+    to { transform: translateY(60px); }
+  }
 
-        .swot-label {
-            font-weight: 900;
-            font-size: 10rem;
-            color: var(--gold-primary);
-            opacity: 0.04;
-            user-select: none;
-            pointer-events: none;
-            filter: blur(1px);
-        }
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 4s ease-in-out infinite;
+  }
 
-        .footer-grad {
-            background: linear-gradient(to top, #ffffff, var(--slate-bg));
-        }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: translate(-50%,-50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
+  }
 
-        @media (max-width: 768px) {
-            .swot-label { font-size: 5rem; }
-            .axis-item { padding: 1rem; }
-        }
-    </style>
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Amiri', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero-title span { color: var(--gold); }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(245,240,232,0.6);
+    font-weight: 300;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-pills {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .pill {
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .pill:hover {
+    background: var(--gold);
+    color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SCROLL INDICATOR ===== */
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(201,168,76,0.5);
+    font-size: 0.7rem;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.2em;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ===== SECTION WRAPPER ===== */
+  .section {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to left, transparent, var(--border), transparent);
+    margin: 4rem 0;
+  }
+
+  /* ===== DEFINITION CARD ===== */
+  .def-card {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .def-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+  }
+
+  .def-card .quote-mark {
+    font-family: 'Amiri', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.15;
+    line-height: 0.5;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .def-card p {
+    font-size: 1.15rem;
+    line-height: 2;
+    position: relative;
+    color: rgba(245,240,232,0.9);
+  }
+
+  .def-card .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  /* ===== FEATURE GRID ===== */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15,14,10,0.1);
+    border-color: var(--gold);
+  }
+
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle at bottom right, var(--gold-pale), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .feature-card:hover::after { opacity: 1; }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .feature-title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .feature-desc {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* ===== RATE TABLE ===== */
+  .rate-table-wrap {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .rate-table-header {
+    background: var(--ink);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .rate-table-header h3 {
+    color: var(--gold);
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+  }
+
+  .rate-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+    gap: 1rem;
+  }
+
+  .rate-row:last-child { border-bottom: none; }
+  .rate-row:hover { background: var(--gold-pale); }
+
+  .rate-activity { font-size: 0.95rem; line-height: 1.5; }
+
+  .rate-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+    background: var(--ink);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .rate-badge.gold { background: var(--gold); color: var(--ink); }
+  .rate-badge.teal { background: var(--teal); }
+  .rate-badge.rust { background: var(--rust); }
+  .rate-badge.purple { background: var(--purple); }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+    padding-right: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--border));
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 2.5rem 2.5rem 0;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    right: -0.6rem; top: 0.3rem;
+    width: 1.2rem; height: 1.2rem;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--cream);
+  }
+
+  .timeline-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+
+  .timeline-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .timeline-content h4 { font-size: 1rem; margin-bottom: 0.4rem; }
+  .timeline-content p { font-size: 0.88rem; color: #555; line-height: 1.7; }
+
+  /* ===== FORMULA BOX ===== */
+  .formula-box {
+    background: var(--ink);
+    border-radius: 1.25rem;
+    padding: 2rem 2.5rem;
+    margin: 1.5rem 0;
+    font-family: 'IBM Plex Mono', monospace;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .formula-box::before {
+    content: 'FORMULA';
+    position: absolute;
+    top: 1rem; left: 1.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(201,168,76,0.4);
+  }
+
+  .formula-text {
+    color: var(--gold-light);
+    font-size: 1rem;
+    line-height: 2.2;
+    text-align: center;
+  }
+
+  .formula-text .op { color: var(--gold); font-weight: 600; }
+  .formula-text .var { color: #7dd3d3; }
+
+  /* ===== INFO BOXES ===== */
+  .info-box {
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    border: 1px solid;
+  }
+
+  .info-box.warning {
+    background: #fff8ec;
+    border-color: #f0c060;
+    color: #7a5200;
+  }
+
+  .info-box.info {
+    background: var(--teal-light);
+    border-color: #a0d4d4;
+    color: var(--teal);
+  }
+
+  .info-box.danger {
+    background: #fff1ee;
+    border-color: #f0a090;
+    color: #8b2000;
+  }
+
+  .info-box-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .info-box-body { font-size: 0.92rem; line-height: 1.8; }
+  .info-box-body strong { display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+
+  /* ===== EXEMPTION CARDS ===== */
+  .exempt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 640px) { .exempt-grid { grid-template-columns: 1fr; } }
+
+  .exempt-card {
+    border-radius: 1.25rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exempt-card.permanent {
+    background: linear-gradient(135deg, #0f2a1a 0%, #1a4a2e 100%);
+    color: var(--cream);
+  }
+
+  .exempt-card.temporary {
+    background: linear-gradient(135deg, #1a1a40 0%, #2d2d70 100%);
+    color: var(--cream);
+  }
+
+  .exempt-card h3 {
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .exempt-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .exempt-card ul li {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding-right: 1.5rem;
+    position: relative;
+    opacity: 0.9;
+  }
+
+  .exempt-card ul li::before {
+    content: '◆';
+    position: absolute;
+    right: 0;
+    color: var(--gold);
+    font-size: 0.6rem;
+    top: 0.35rem;
+  }
+
+  /* ===== PENALTY TABLE ===== */
+  .penalty-visual {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .penalty-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .penalty-card:hover { transform: scale(1.03); }
+
+  .penalty-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    height: 4px;
+  }
+
+  .penalty-card.low::before { background: #4caf50; }
+  .penalty-card.mid::before { background: #ff9800; }
+  .penalty-card.high::before { background: var(--rust); }
+
+  .penalty-period {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .penalty-rate {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .penalty-card.low .penalty-rate { color: #4caf50; }
+  .penalty-card.mid .penalty-rate { color: #ff9800; }
+  .penalty-card.high .penalty-rate { color: var(--rust); }
+
+  .penalty-label { font-size: 0.8rem; color: #666; }
+
+  /* ===== PAYMENT STEPS ===== */
+  .payment-steps {
+    display: flex;
+    gap: 0;
+    position: relative;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .payment-step {
+    flex: 1;
+    min-width: 150px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .payment-step:first-child { border-radius: 1rem 0 0 1rem; }
+  .payment-step:last-child { border-radius: 0 1rem 1rem 0; }
+  .payment-step:hover { background: var(--gold-pale); }
+
+  .step-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-pct {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .step-date {
+    font-size: 0.78rem;
+    color: #888;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* ===== NAV ===== */
+  .sticky-nav {
+    position: fixed;
+    top: 0; right: 0; left: 0;
+    z-index: 100;
+    background: rgba(15,14,10,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    transform: translateY(-100%);
+    transition: transform 0.4s;
+  }
+
+  .sticky-nav.visible { transform: translateY(0); }
+
+  .nav-logo {
+    font-family: 'Amiri', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    white-space: nowrap;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    overflow-x: auto;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.6);
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: 'Cairo', sans-serif;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ===== CHAPTER DIVIDERS ===== */
+  .chapter-divider {
+    background: var(--ink);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-divider::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(201,168,76,0.03) 0px,
+      rgba(201,168,76,0.03) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+  }
+
+  .chapter-divider h2 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--cream);
+    position: relative;
+  }
+
+  .chapter-divider h2 span { color: var(--gold); }
+
+  .chapter-divider p {
+    color: rgba(245,240,232,0.5);
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    position: relative;
+  }
+
+  /* ===== IBS CALC VISUAL ===== */
+  .calc-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 2rem 0;
+  }
+
+  .calc-step {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .calc-step:hover {
+    border-color: var(--gold);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.1);
+  }
+
+  .calc-step-icon {
+    width: 2.5rem; height: 2.5rem;
+    background: var(--gold-pale);
+    border-radius: 0.75rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .calc-step-text { font-size: 0.95rem; line-height: 1.5; }
+  .calc-step-text strong { display: block; margin-bottom: 0.2rem; }
+  .calc-step-text span { color: #888; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; }
+
+  .calc-step-op {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ===== TAG CLOUD ===== */
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .tag {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    cursor: default;
+  }
+
+  .tag:hover { background: var(--gold-pale); border-color: var(--gold); }
+  .tag.excluded { text-decoration: line-through; color: #aaa; }
+  .tag.excluded:hover { background: #fff1ee; border-color: #f0a090; text-decoration: none; color: var(--rust); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--ink);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: rgba(245,240,232,0.4);
+  }
+
+  .footer h3 {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .footer p { font-size: 0.85rem; max-width: 400px; margin: 0 auto; line-height: 1.8; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .payment-steps { flex-direction: column; }
+    .payment-step:first-child { border-radius: 1rem 1rem 0 0; }
+    .payment-step:last-child { border-radius: 0 0 1rem 1rem; }
+    .penalty-visual { grid-template-columns: 1fr; }
+    .calc-step { grid-template-columns: auto 1fr; }
+    .calc-step-op { display: none; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .section-number { font-size: 2.5rem; }
+  }
+
+  /* ===== ANIMATE ON SCROLL ===== */
+  .aos {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .aos.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
 </head>
 <body>
 
-    <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100 py-4">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-extrabold tracking-tight text-slate-800">
-                <span>إدارة <span class="gold-text">استراتيجية</span></span>
-            </a>
-            <ul class="hidden md:flex gap-8 text-[11px] font-extrabold text-slate-500 uppercase tracking-widest">
-                <li><a href="index.html" class="gold-text">الرئيسية</a></li>
-                <li><a href="pages/about.html" class="hover:text-amber-600 transition-colors">عن المقياس</a></li>
-                <li><a href="pages/roadmap.html" class="hover:text-amber-600 transition-colors">خارطة الطريق</a></li>
-                <li><a href="pages/contact.html" class="hover:text-amber-600 transition-colors">التواصل</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- STICKY NAV -->
+<nav class="sticky-nav" id="nav">
+  <span class="nav-logo">⚖️ الجباية الجزائرية</span>
+  <ul class="nav-links">
+    <li><a href="#ifu">IFU</a></li>
+    <li><a href="#ibs">IBS</a></li>
+    <li><a href="#bases">المبادئ</a></li>
+    <li><a href="#rates">المعدلات</a></li>
+    <li><a href="#payment">الدفع</a></li>
+  </ul>
+</nav>
 
-    <header class="relative py-16 bg-white overflow-hidden">
-        <div class="swot-container">
-            <div class="swot-quadrant"><span class="swot-label">S</span></div>
-            <div class="swot-quadrant"><span class="swot-label">W</span></div>
-            <div class="swot-quadrant"><span class="swot-label">O</span></div>
-            <div class="swot-quadrant"><span class="swot-label">T</span></div>
-        </div>
-        
-        <div class="container relative z-10 mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gold-light-bg border border-amber-100 gold-text text-[11px] font-bold mb-6 animate-pulse">
-                <span class="w-2 h-2 rounded-full gold-bg"></span>
-                جامعة باتنة 1 كلية العلوم الاقتصادية والتجارية وعلوم التسيير - إدارة استراتيجية 
-            </div>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-2">
-                 ملخص محاور <span class="gold-text">الادارة الاستراتيجية </span>
-            </h1>
-        </div>
-    </header>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">دليل الجباية الجزائرية ← محاضرات جامعية</span>
+    <h1 class="hero-title">الجباية<br><span>الجزائرية</span></h1>
+    <p class="hero-subtitle">دليل شامل ومرئي للضريبة الجزافية الوحيدة والضريبة على أرباح الشركات</p>
+    <div class="hero-pills">
+      <a href="#bases" class="pill">المفاهيم الأساسية</a>
+      <a href="#ifu" class="pill">IFU الجزافية</a>
+      <a href="#ibs" class="pill">IBS أرباح الشركات</a>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</section>
 
-    <main class="py-16 container mx-auto px-6 max-w-5xl">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <a href="subjects/strategic-management/lessons/lesson-1.html" class="axis-item group border-amber-200">
-                <div class="icon-small gold-bg text-white group-hover:scale-110 transition-transform ml-4 shadow-md">
-                    01
-                </div>
-                <div class="flex-grow text-right">
-                    <h3 class="text-[15px] font-bold text-slate-900 group-hover:gold-text transition-colors">
-                        تطور الفكر الإستراتيجي
-                    </h3>
-                </div>
-                <div class="w-8 h-8 rounded-full flex items-center justify-center bg-amber-500 text-white transition-all flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </div>
-            </a>
+<!-- ===================== PART 1: BASES ===================== -->
+<div class="chapter-divider" id="bases">
+  <h2>المحاضرة الأولى<br><span>مدخل عام للجباية</span></h2>
+  <p>الضريبة — المبادئ — التنظيم الفني</p>
+</div>
 
-            <a href="subjects/strategic-management/lessons/lesson-2.html" class="axis-item group border-amber-200">
-                <div class="icon-small gold-bg text-white group-hover:scale-110 transition-transform ml-4 shadow-md">
-                    02
-                </div>
-                <div class="flex-grow text-right">
-                    <h3 class="text-[15px] font-bold text-slate-900 group-hover:gold-text transition-colors">
-                        تحديد عناصر الاتجاه الإستراتيجي
-                    </h3>
-                </div>
-                <div class="w-8 h-8 rounded-full flex items-center justify-center bg-amber-500 text-white transition-all flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </div>
-            </a>
+<div class="section">
 
-            <a href="subjects/strategic-management/lessons/lesson-3.html" class="axis-item group border-amber-200">
-                <div class="icon-small gold-bg text-white group-hover:scale-110 transition-transform ml-4 shadow-md">
-                    03
-                </div>
-                <div class="flex-grow text-right">
-                    <h3 class="text-[15px] font-bold text-slate-900 group-hover:gold-text transition-colors">
-                        تحليل البيئة الخارجية
-                    </h3>
-                </div>
-                <div class="w-8 h-8 rounded-full flex items-center justify-center bg-amber-500 text-white transition-all flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </div>
-            </a>
+  <div class="section-header aos">
+    <span class="section-number">01</span>
+    <h2 class="section-title">تعريف الجباية والضريبة</h2>
+  </div>
 
-            <a href="subjects/strategic-management/lessons/lesson-4.html" class="axis-item group border-amber-200">
-                <div class="icon-small gold-bg text-white group-hover:scale-110 transition-transform ml-4 shadow-md">
-                    04
-                </div>
-                <div class="flex-grow text-right">
-                    <h3 class="text-[15px] font-bold text-slate-900 group-hover:gold-text transition-colors">
-                        تحليل البيئة الداخلية
-                    </h3>
-                </div>
-                <div class="w-8 h-8 rounded-full flex items-center justify-center bg-amber-500 text-white transition-all flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </div>
-            </a>
+  <div class="def-card aos">
+    <span class="label">← تعريف الجباية</span>
+    <span class="quote-mark">"</span>
+    <p>كل ما تحصله الدولة لفائدة الخزينة العامة من ضرائب ورسوم وإتاوات وعقوبات جبائية، بهدف تغطية النفقات العامة والتأثير على الحياة الاقتصادية والاجتماعية والسياسية. تنقسم إلى: جباية عادية، بترولية، محلية.</p>
+  </div>
 
-            <a href="subjects/strategic-management/lessons/lesson-5.html" class="axis-item group border-amber-200">
-                <div class="icon-small gold-bg text-white group-hover:scale-110 transition-transform ml-4 shadow-md">
-                    05
-                </div>
-                <div class="flex-grow text-right">
-                    <h3 class="text-[15px] font-bold text-slate-900 group-hover:gold-text transition-colors">
-                        الخيارات الإستراتيجية — مستوى المؤسسة
-                    </h3>
-                </div>
-                <div class="w-8 h-8 rounded-full flex items-center justify-center bg-amber-500 text-white transition-all flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </div>
-            </a>
+  <div class="def-card aos" style="background: var(--teal); margin-top: 1.25rem;">
+    <span class="label" style="color: var(--gold-light);">← تعريف الضريبة</span>
+    <span class="quote-mark">"</span>
+    <p style="color: rgba(255,255,255,0.9);">اقتطاع نقدي جبري تفرضه الدولة على المكلفين وفق قدراتهم، بصفة نهائية وبلا مقابل، لتغطية الأعباء العامة وتحقيق أهداف الدولة.</p>
+  </div>
 
-            <a href="subjects/strategic-management/lessons/lesson-6.html" class="axis-item group border-amber-200">
-                <div class="icon-small gold-bg text-white group-hover:scale-110 transition-transform ml-4 shadow-md">
-                    06
-                </div>
-                <div class="flex-grow text-right">
-                    <h3 class="text-[15px] font-bold text-slate-900 group-hover:gold-text transition-colors">
-                        الخيارات الإستراتيجية — وحدات الأعمال
-                    </h3>
-                </div>
-                <div class="w-8 h-8 rounded-full flex items-center justify-center bg-amber-500 text-white transition-all flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </div>
-            </a>
-        </div>
-    </main>
+  <div class="section-divider"></div>
 
-    <footer class="py-12 footer-grad border-t border-slate-50 text-center">
-        <p class="text-slate-300 text-[10px] font-black uppercase tracking-[0.4em] mb-4">جامعة باتنة 1</p>
-        <div class="flex justify-center gap-6 text-[10px] font-bold text-slate-400">
-            <a href="#" class="hover:text-amber-600 transition-colors">سياسة الخصوصية</a>
-            <a href="pages/about.html" class="hover:text-amber-600 transition-colors">عن المنصة</a>
-        </div>
-    </footer>
+  <div class="section-header aos">
+    <span class="section-number">02</span>
+    <h2 class="section-title">خصائص الضريبة الخمسة</h2>
+  </div>
 
+  <div class="feature-grid">
+    <div class="feature-card aos">
+      <span class="feature-icon">💰</span>
+      <div class="feature-title">اقتطاع مالي نقدي</div>
+      <div class="feature-desc">تنتقل قيمتها نهائياً من المكلف إلى الدولة. كانت قديماً عينية، ثم أصبحت نقدية في العصر الحديث.</div>
+    </div>
+    <div class="feature-card aos">
+      <span class="feature-icon">⚖️</span>
+      <div class="feature-title">جبرية — بالإكراه</div>
+      <div class="feature-desc">تفرضها السلطة دون اتفاق مع المكلف. البرلمان يناقش ويوافق، والدولة تحصّل بالطرق الجبرية عند الامتناع.</div>
+    </div>
+    <div class="feature-card aos">
+      <span class="feature-icon">🚫</span>
+      <div class="feature-title">بلا مقابل</div>
+      <div class="feature-desc">تُدفع كمساهمة في المجتمع لا مقابل خدمة خاصة. المكلف عضو في الجماعة لا ممول للضرائب.</div>
+    </div>
+    <div class="feature-card aos">
+      <span class="feature-icon">🔒</span>
+      <div class="feature-title">نهائية — غير مستردة</div>
+      <div class="feature-desc">الدولة غير ملزمة بردّها، والمكلف لا يحق له استردادها ولا المطالبة بفوائد عنها.</div>
+    </div>
+    <div class="feature-card aos">
+      <span class="feature-icon">🌍</span>
+      <div class="feature-title">لمنفعة عامة</div>
+      <div class="feature-desc">هدفها تمويل الميزانية لتغطية النفقات العامة لجميع أفراد المجتمع بلا استثناء.</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">03</span>
+    <h2 class="section-title">المبادئ الأربعة للضريبة</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item aos">
+      <div class="timeline-dot"></div>
+      <div class="timeline-label">المبدأ الأول</div>
+      <div class="timeline-content">
+        <h4>قاعدة العدل (المساواة)</h4>
+        <p>تطورت من الضريبة النسبية (نسبة واحدة للجميع) إلى الضريبة التصاعدية حيث يرتفع السعر بارتفاع الدخل، لتحقيق عدالة حقيقية لا مجرد مساواة حسابية.</p>
+      </div>
+    </div>
+    <div class="timeline-item aos">
+      <div class="timeline-dot"></div>
+      <div class="timeline-label">المبدأ الثاني</div>
+      <div class="timeline-content">
+        <h4>قاعدة اليقين</h4>
+        <p>الضريبة يجب أن تكون واضحة ومعلومة للمكلف والإدارة: الأهمية، السعر، الوعاء، طرق الربط والتحصيل. لا غموض ولا التباس.</p>
+      </div>
+    </div>
+    <div class="timeline-item aos">
+      <div class="timeline-dot"></div>
+      <div class="timeline-label">المبدأ الثالث</div>
+      <div class="timeline-content">
+        <h4>قاعدة الملاءمة في الدفع</h4>
+        <p>تنظيم أحكام الضريبة بما يلاءم ظروف المكلفين. أفضل وقت للدفع هو وقت حصول المكلف على دخله.</p>
+      </div>
+    </div>
+    <div class="timeline-item aos">
+      <div class="timeline-dot" style="background: var(--teal);"></div>
+      <div class="timeline-label">المبدأ الرابع</div>
+      <div class="timeline-content">
+        <h4>قاعدة الاقتصاد في النفقة</h4>
+        <p>نفقات الجباية يجب أن تكون ضئيلة مقارنة بحصيلتها، في مصلحة الطرفين: الدولة والمكلف.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================== PART 2: IFU ===================== -->
+<div class="chapter-divider" id="ifu">
+  <h2>المحاضرة الثانية<br><span>الضريبة الجزافية الوحيدة</span></h2>
+  <p>IFU — Impôt Forfaitaire Unique</p>
+</div>
+
+<div class="section">
+
+  <div class="section-header aos">
+    <span class="section-number">04</span>
+    <h2 class="section-title">النشأة والفكرة</h2>
+  </div>
+
+  <div class="def-card aos" style="background: linear-gradient(135deg, #1a3a5c, #0d2035);">
+    <span class="label">← لماذا أُنشئت IFU؟</span>
+    <p style="color: rgba(245,240,232,0.9);">قبل سنة 2007، كان المكلف الصغير يدفع <strong style="color:var(--gold);">3 ضرائب منفصلة:</strong> الرسم على النشاط المهني (TAP) + الرسم على القيمة المضافة (TVA) + الضريبة على الدخل الإجمالي (IRG). جاءت IFU لتجمعها في ضريبة واحدة مبسطة تسهل الحساب والمتابعة.</p>
+  </div>
+
+  <div class="info-box info aos">
+    <span class="info-box-icon">📅</span>
+    <div class="info-box-body">
+      <strong>السقف الحالي لرقم الأعمال السنوي</strong>
+      أقل من <strong>8.000.000 دج</strong> (ثمانية ملايين دينار جزائري) — تم تحديده بموجب قانون المالية 2017
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">05</span>
+    <h2 class="section-title">من يخضع لـ IFU؟</h2>
+  </div>
+
+  <div class="tag-cloud aos">
+    <span class="tag">بائعو السلع والمواد (≤ 8M دج)</span>
+    <span class="tag">الحرفيون</span>
+    <span class="tag">أصحاب الأنشطة الصناعية والتجارية (≤ 8M دج)</span>
+    <span class="tag">الشركات المدنية المهنية (≤ 8M دج)</span>
+    <span class="tag">التعاونيات الحرفية (≤ 8M دج)</span>
+    <span class="tag">المقاول الذاتي (≤ 5M دج)</span>
+    <span class="tag">شباب ANADE / ANGEM / CNAC (≤ 8M دج)</span>
+    <span class="tag">منتجات ذات أسعار مسقفة</span>
+  </div>
+
+  <div class="info-box warning aos" style="margin-top: 1.5rem;">
+    <span class="info-box-icon">🚫</span>
+    <div class="info-box-body">
+      <strong>المستثنون من IFU — لا يخضعون لها:</strong>
+      الترقية العقارية • استيراد البضائع لإعادة البيع • البيع بالجملة • الوكلاء • العيادات الخاصة • الفندقة المصنفة • الأشغال العمومية • بائعو الكحول • وكالات السياحة • وكالات الإشهار • التكوين والتدريس • وسيط التأمين ...
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">06</span>
+    <h2 class="section-title">معدلات IFU</h2>
+  </div>
+
+  <div class="rate-table-wrap aos">
+    <div class="rate-table-header">
+      <span style="font-size:1.5rem;">📊</span>
+      <h3>جدول معدلات الضريبة الجزافية الوحيدة</h3>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">أنشطة الإنتاج وبيع السلع</div>
+      <span class="rate-badge gold">5%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">جمع الورق المستعمل والنفايات القابلة لإعادة التدوير</div>
+      <span class="rate-badge gold">5%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">توزيع السلع والخدمات عبر المنصات الرقمية (اقتطاع من المصدر)</div>
+      <span class="rate-badge gold">5%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">الأنشطة في إطار نظام المقاول الذاتي</div>
+      <span class="rate-badge" style="background:#b08020;color:white;">5.5%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">الأنشطة الأخرى (تجارية، خدمات...)</div>
+      <span class="rate-badge rust">12%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">الإيرادات المهنية للمهن غير التجارية</div>
+      <span class="rate-badge rust">12%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">الشركات المدنية المهنية</div>
+      <span class="rate-badge rust">12%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">المنتجات ذات الأسعار المحددة (حليب، سكر، غاز...)</div>
+      <span class="rate-badge teal">هامش الربح</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">07</span>
+    <h2 class="section-title">الإعفاءات</h2>
+  </div>
+
+  <div class="exempt-grid">
+    <div class="exempt-card permanent aos">
+      <h3>♾️ إعفاءات دائمة</h3>
+      <ul>
+        <li>مؤسسات جمعيات الأشخاص المعوقين المعتمدة</li>
+        <li>إيرادات الفرق المسرحية</li>
+        <li>رقم الأعمال من جمع وبيع الحليب الطازج</li>
+        <li>الحرفيون التقليديون المقيدون في دفتر الشروط</li>
+      </ul>
+    </div>
+    <div class="exempt-card temporary aos">
+      <h3>⏱️ إعفاءات مؤقتة</h3>
+      <ul>
+        <li>ANADE / ANGEM / CNAC: إعفاء 3 سنوات</li>
+        <li>في مناطق يراد ترقيتها: يمتد إلى 6 سنوات</li>
+        <li>عند توظيف ≥ 3 موظفين: + سنتان إضافيتان</li>
+        <li>جامعو النفايات: سنتان إعفاء + تخفيضات متدرجة</li>
+        <li>المؤسسات الناشئة (label startup): 4 سنوات + 1</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">08</span>
+    <h2 class="section-title">الالتزامات التصريحية</h2>
+  </div>
+
+  <div class="rate-table-wrap aos">
+    <div class="rate-table-header">
+      <span style="font-size:1.5rem;">📋</span>
+      <h3>جدول التصريحات المطلوبة</h3>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>التصريح بالوجود — سلسلة ج رقم 8</strong><br>
+        <span style="font-size:0.85rem;color:#888;">خلال 30 يوماً من بداية النشاط</span>
+      </div>
+      <span class="rate-badge teal">30 يوم</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>التصريح التقديري — سلسلة ج رقم 12</strong><br>
+        <span style="font-size:0.85rem;color:#888;">قبل 30 جوان من كل سنة</span>
+      </div>
+      <span class="rate-badge gold">30 جوان</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>التصريح النهائي — سلسلة ج رقم 12 مكرر</strong><br>
+        <span style="font-size:0.85rem;color:#888;">قبل 30 جانفي من السنة الموالية (ن+1)</span>
+      </div>
+      <span class="rate-badge rust">30 جانفي</span>
+    </div>
+  </div>
+
+  <div class="info-box danger aos">
+    <span class="info-box-icon">⚠️</span>
+    <div class="info-box-body">
+      <strong>غرامة عدم التصريح بالوجود في الأجل</strong>
+      10.000 دج
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">09</span>
+    <h2 class="section-title">غرامات التأخير</h2>
+  </div>
+
+  <p style="margin-bottom:1rem; color:#555;" class="aos">التأخر في تقديم التصريحات:</p>
+  <div class="penalty-visual">
+    <div class="penalty-card low aos">
+      <div class="penalty-period">≤ شهر واحد</div>
+      <div class="penalty-rate">10%</div>
+      <div class="penalty-label">غرامة تأخير</div>
+    </div>
+    <div class="penalty-card mid aos">
+      <div class="penalty-period">شهر → شهرين</div>
+      <div class="penalty-rate">20%</div>
+      <div class="penalty-label">غرامة تأخير</div>
+    </div>
+    <div class="penalty-card high aos">
+      <div class="penalty-period">> شهرين</div>
+      <div class="penalty-rate">25%</div>
+      <div class="penalty-label">غرامة تأخير</div>
+    </div>
+  </div>
+
+  <p style="margin:1.5rem 0 1rem; color:#555;" class="aos">التأخر في الدفع:</p>
+  <div class="penalty-visual">
+    <div class="penalty-card low aos">
+      <div class="penalty-period">≤ شهر</div>
+      <div class="penalty-rate">10%</div>
+      <div class="penalty-label">غرامة دفع</div>
+    </div>
+    <div class="penalty-card mid aos">
+      <div class="penalty-period">شهر → شهرين</div>
+      <div class="penalty-rate">15%</div>
+      <div class="penalty-label">غرامة دفع</div>
+    </div>
+    <div class="penalty-card high aos">
+      <div class="penalty-period">> شهرين</div>
+      <div class="penalty-rate">+3%</div>
+      <div class="penalty-label">لكل شهر (حد أقصى 25%)</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">10</span>
+    <h2 class="section-title">طريقة الدفع بالأقساط</h2>
+  </div>
+
+  <div class="payment-steps aos" id="payment">
+    <div class="payment-step">
+      <div class="step-num">القسط الأول</div>
+      <div class="step-pct">50%</div>
+      <div class="step-date">قبل 30 جوان</div>
+    </div>
+    <div class="payment-step">
+      <div class="step-num">القسط الثاني</div>
+      <div class="step-pct">25%</div>
+      <div class="step-date">1–15 سبتمبر</div>
+    </div>
+    <div class="payment-step">
+      <div class="step-num">القسط الثالث</div>
+      <div class="step-pct">25%</div>
+      <div class="step-date">1–15 ديسمبر</div>
+    </div>
+  </div>
+
+  <div class="info-box warning aos">
+    <span class="info-box-icon">💡</span>
+    <div class="info-box-body">
+      <strong>الحد الأدنى للضريبة</strong>
+      30.000 دج مهما كان رقم الأعمال — حتى لو كان صفراً. (10.000 دج لأصحاب ANADE/ANGEM/CNAC)
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================== PART 3: IBS ===================== -->
+<div class="chapter-divider" id="ibs">
+  <h2>المحاضرة الثالثة<br><span>الضريبة على أرباح الشركات</span></h2>
+  <p>IBS — Impôt sur les Bénéfices des Sociétés</p>
+</div>
+
+<div class="section">
+
+  <div class="section-header aos">
+    <span class="section-number">11</span>
+    <h2 class="section-title">تعريف ومجال التطبيق</h2>
+  </div>
+
+  <div class="def-card aos" style="background: linear-gradient(135deg, #2d1a0e, #5a3010);">
+    <span class="label" style="color:var(--gold-light);">← IBS منذ 1991</span>
+    <p style="color: rgba(245,240,232,0.9);">ضريبة سنوية على مجمل الأرباح والمداخيل التي تحققها الشركات والأشخاص المعنوية. خُصِّصت للأشخاص الاعتباريين الخاضعين للنظام الحقيقي، وتُحتسب على الربح المحقق خلال السنة المحاسبية (01/01 → 31/12).</p>
+  </div>
+
+  <div class="feature-grid" style="margin-top: 2rem;">
+    <div class="feature-card aos" style="border-right: 4px solid #4caf50;">
+      <span class="feature-icon">✅</span>
+      <div class="feature-title">خاضعة إجباريًا</div>
+      <div class="feature-desc">شركات الأسهم • التوصية بالأسهم • ش.ذ.م.م • المؤسسات العمومية الاقتصادية والصناعية • الشركات التعاونية</div>
+    </div>
+    <div class="feature-card aos" style="border-right: 4px solid #ff9800;">
+      <span class="feature-icon">🔄</span>
+      <div class="feature-title">خاضعة باختيار</div>
+      <div class="feature-desc">شركات التضامن • التوصية البسيطة • الشركات المدنية<br><em style="font-size:0.8rem;color:#888;">الاختيار لا رجعة فيه مدى حياة الشركة</em></div>
+    </div>
+    <div class="feature-card aos" style="border-right: 4px solid var(--rust);">
+      <span class="feature-icon">❌</span>
+      <div class="feature-title">غير خاضعة</div>
+      <div class="feature-desc">شركات الأشخاص (إلا باختيار) • هيئات التوظيف الجماعي للقيم المنقولة • التجمعات التجارية</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos" id="rates">
+    <span class="section-number">12</span>
+    <h2 class="section-title">معدلات IBS</h2>
+  </div>
+
+  <div class="rate-table-wrap aos">
+    <div class="rate-table-header">
+      <span style="font-size:1.5rem;">🏭</span>
+      <h3>معدلات الضريبة على أرباح الشركات</h3>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">أنشطة إنتاج السلع</div>
+      <span class="rate-badge" style="background:#2e7d32;color:white;">19%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">البناء والأشغال العمومية والري + السياحة والحمامات (باستثناء وكالات الأسفار)</div>
+      <span class="rate-badge gold">23%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">الأنشطة الأخرى (خدمات، تجارة...)</div>
+      <span class="rate-badge rust">26%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">الأرباح المعاد استثمارها (معدل مخفض — من 2022)</div>
+      <span class="rate-badge teal">10%</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">13</span>
+    <h2 class="section-title">مراحل حساب IBS</h2>
+  </div>
+
+  <div class="calc-flow">
+    <div class="calc-step aos">
+      <div class="calc-step-icon">📈</div>
+      <div class="calc-step-text">
+        <strong>المرحلة 1: النتيجة المحاسبية</strong>
+        <span>= مجموع الإيرادات (م7) − مجموع التكاليف (م6)</span>
+      </div>
+      <div class="calc-step-op">=</div>
+    </div>
+    <div class="calc-step aos">
+      <div class="calc-step-icon">⚙️</div>
+      <div class="calc-step-text">
+        <strong>المرحلة 2: النتيجة الجبائية</strong>
+        <span>= النتيجة المحاسبية − التخفيضات + الاسترجاعات</span>
+      </div>
+      <div class="calc-step-op">=</div>
+    </div>
+    <div class="calc-step aos">
+      <div class="calc-step-icon">💵</div>
+      <div class="calc-step-text">
+        <strong>المرحلة 3: مبلغ IBS</strong>
+        <span>= النتيجة الجبائية × معدل الضريبة</span>
+      </div>
+      <div class="calc-step-op">=</div>
+    </div>
+  </div>
+
+  <div class="formula-box aos">
+    <div class="formula-text">
+      <span class="var">النتيجة المحاسبية</span> <span class="op"> = </span> <span class="var">Σ الإيرادات م7</span> <span class="op"> − </span> <span class="var">Σ التكاليف م6</span>
+      <br>
+      <span class="var">النتيجة الجبائية</span> <span class="op"> = </span> <span class="var">N.Comptable</span> <span class="op"> − </span> <span class="var">التخفيضات</span> <span class="op"> + </span> <span class="var">الاسترجاعات</span>
+      <br>
+      <span class="var">IBS</span> <span class="op"> = </span> <span class="var">N.Fiscale</span> <span class="op"> × </span> <span class="var">معدل %</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">14</span>
+    <h2 class="section-title">التخفيضات الجبائية</h2>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card aos" style="border-top: 3px solid #2e7d32;">
+      <span class="feature-icon">📉</span>
+      <div class="feature-title">خسارة الأربع سنوات</div>
+      <div class="feature-desc">تُرحَّل الخسارة من سنة لأخرى حتى السنة الرابعة. إن لم تُستهلك، تُدفع الضريبة في السنة الخامسة على الربح الجبائي الكامل.</div>
+    </div>
+    <div class="feature-card aos" style="border-top: 3px solid var(--gold);">
+      <span class="feature-icon">💱</span>
+      <div class="feature-title">العملة الصعبة</div>
+      <div class="feature-desc">رقم الأعمال المحقق بالعملة الصعبة من تصدير السلع: إعفاء كلي ودائم بشرط تقديم وثائق إثبات.</div>
+    </div>
+    <div class="feature-card aos" style="border-top: 3px solid var(--teal);">
+      <span class="feature-icon">📊</span>
+      <div class="feature-title">فائض القيمة</div>
+      <div class="feature-desc">
+        ≤ 3 سنوات: معالجة 70% — إعفاء 30%<br>
+        > 3 سنوات: معالجة 35% — إعفاء 65%<br>
+        <em style="font-size:0.8rem;color:#888;">إعفاء 100% بشرط إعادة الاستثمار خلال 3 سنوات</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">15</span>
+    <h2 class="section-title">التكاليف غير المقبولة جبائياً (استرجاعات)</h2>
+  </div>
+
+  <div class="rate-table-wrap aos">
+    <div class="rate-table-header">
+      <span style="font-size:1.5rem;">🚫</span>
+      <h3>الأعباء غير المقبولة أو المقبولة جزئياً</h3>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>الهدايا المختلفة</strong><br>
+        <span style="font-size:0.85rem;color:#888;">مقبولة فقط إذا كانت &lt; 1000 دج/هدية وبحد إجمالي 500.000 دج</span>
+      </div>
+      <span class="rate-badge" style="background:#888;">جزئي</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>الإعانات والتبرعات</strong><br>
+        <span style="font-size:0.85rem;color:#888;">مقبولة للجمعيات الإنسانية في حدود 4.000.000 دج</span>
+      </div>
+      <span class="rate-badge" style="background:#888;">جزئي</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>الإشهار الرياضي والكفالة</strong><br>
+        <span style="font-size:0.85rem;color:#888;">حد أقصى 10% من رقم الأعمال وبما لا يتجاوز 30.000.000 دج</span>
+      </div>
+      <span class="rate-badge" style="background:#888;">10%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>الترويج الطبي للمواد الصيدلانية</strong><br>
+        <span style="font-size:0.85rem;color:#888;">في حدود 1% من رقم الأعمال السنوي</span>
+      </div>
+      <span class="rate-badge" style="background:#888;">1%</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>اهتلاك السيارة السياحية</strong><br>
+        <span style="font-size:0.85rem;color:#888;">في حدود 1.000.000 دج × معدل الاهتلاك</span>
+      </div>
+      <span class="rate-badge" style="background:#888;">محدود</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>صيانة وإصلاح السيارة السياحية</strong><br>
+        <span style="font-size:0.85rem;color:#888;">لا يتجاوز 20.000 دج لكل مركبة</span>
+      </div>
+      <span class="rate-badge" style="background:#888;">محدود</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>الفواتير المسددة نقداً > 1.000.000 دج</strong><br>
+        <span style="font-size:0.85rem;color:#888;">غير مقبولة إلا إذا سُددت عبر حساب بنكي</span>
+      </div>
+      <span class="rate-badge rust">مرفوضة</span>
+    </div>
+    <div class="rate-row">
+      <div class="rate-activity">
+        <strong>الغرامات والعقوبات + رسم التكوين المهني</strong>
+      </div>
+      <span class="rate-badge rust">مرفوضة</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">16</span>
+    <h2 class="section-title">التسبيقات ورصيد التسوية</h2>
+  </div>
+
+  <div class="payment-steps aos">
+    <div class="payment-step">
+      <div class="step-num">التسبيق الأول</div>
+      <div class="step-pct">30%</div>
+      <div class="step-date">20 فيفري → 20 مارس</div>
+    </div>
+    <div class="payment-step">
+      <div class="step-num">التسبيق الثاني</div>
+      <div class="step-pct">30%</div>
+      <div class="step-date">20 ماي → 20 جوان</div>
+    </div>
+    <div class="payment-step">
+      <div class="step-num">التسبيق الثالث</div>
+      <div class="step-pct">30%</div>
+      <div class="step-date">20 أكتوبر → 20 نوفمبر</div>
+    </div>
+  </div>
+
+  <div class="formula-box aos">
+    <div class="formula-text">
+      <span class="var">كل تسبيق</span> <span class="op"> = </span> <span class="var">IBS (ن−1)</span> <span class="op"> × </span> <span class="var">30%</span>
+      <br>
+      <span class="var">مجموع التسبيقات</span> <span class="op"> = </span> <span class="var">90%</span> <span class="op"> من </span> <span class="var">IBS (ن−1)</span>
+      <br>
+      <span class="var">رصيد التسوية</span> <span class="op"> = </span> <span class="var">IBS (ن)</span> <span class="op"> − </span> <span class="var">مجموع التسبيقات</span>
+    </div>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card aos" style="border-right: 4px solid #4caf50;">
+      <span class="feature-icon">📥</span>
+      <div class="feature-title">رصيد موجب</div>
+      <div class="feature-desc">يجب دفع الفارق قبل <strong>30 ماي</strong> من السنة الموالية.</div>
+    </div>
+    <div class="feature-card aos" style="border-right: 4px solid var(--teal);">
+      <span class="feature-icon">📤</span>
+      <div class="feature-title">رصيد سالب (فائض)</div>
+      <div class="feature-desc">يُخصم من التسبيقات المقبلة أو يُسترجع عند الاقتضاء.</div>
+    </div>
+  </div>
+
+  <div class="info-box warning aos">
+    <span class="info-box-icon">⚠️</span>
+    <div class="info-box-body">
+      <strong>الحد الأدنى لـ IBS</strong>
+      <strong>30.000 دج</strong> مهما كانت نتيجة الدورة، حتى لو كانت سالبة أو معدومة.
+    </div>
+  </div>
+
+  <div class="info-box info aos">
+    <span class="info-box-icon">🏗️</span>
+    <div class="info-box-body">
+      <strong>للمؤسسات حديثة النشأة</strong>
+      الربح الجبائي المقدر = رأس المال الاجتماعي × 5%<br>
+      كل تسبيق = الربح المقدر × 5% × 30%
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header aos">
+    <span class="section-number">17</span>
+    <h2 class="section-title">نسب الاقتطاع من المصدر</h2>
+  </div>
+
+  <div class="rate-table-wrap aos">
+    <div class="rate-table-header">
+      <span style="font-size:1.5rem;">💸</span>
+      <h3>الاقتطاعات من المصدر — IBS</h3>
+    </div>
+    <div class="rate-row"><div class="rate-activity">عوائد الديون والودائع والكفالات</div><span class="rate-badge teal">10%</span></div>
+    <div class="rate-row"><div class="rate-activity">سندات الصناديق غير الاسمية (محررة)</div><span class="rate-badge rust">40%</span></div>
+    <div class="rate-row"><div class="rate-activity">عقود التسيير (محررة)</div><span class="rate-badge" style="background:#6a4c9c;color:white;">20%</span></div>
+    <div class="rate-row"><div class="rate-activity">المؤسسات الأجنبية — خدمات في الجزائر</div><span class="rate-badge rust">30%</span></div>
+    <div class="rate-row"><div class="rate-activity">شركات النقل البحري الأجنبية</div><span class="rate-badge teal">10%</span></div>
+    <div class="rate-row"><div class="rate-activity">عائدات الأسهم — أشخاص معنويون غير مقيمين (محررة)</div><span class="rate-badge" style="background:#888;color:white;">15%</span></div>
+    <div class="rate-row"><div class="rate-activity">توزيع أرباح خضعت لـ IBS أو مُعفاة (محررة)</div><span class="rate-badge gold">5%</span></div>
+    <div class="rate-row"><div class="rate-activity">فوائض القيمة من التنازل — غير مقيمين</div><span class="rate-badge" style="background:#888;color:white;">20%</span></div>
+    <div class="rate-row"><div class="rate-activity">واردات السلع لإعادة البيع على حالها (عند الاستيراد)</div><span class="rate-badge gold">2%</span></div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <h3>⚖️ الجباية الجزائرية</h3>
+  <p>ملخص محاضرات جامعية — مدخل عام للجباية، IFU، IBS<br>أُعد للمراجعة والاستذكار</p>
+  <p style="margin-top:1.5rem; font-size:0.75rem; opacity:0.4;">جامعة باتنة 1 — إدارة مالية</p>
+</footer>
+
+<script>
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8);
+  });
+
+  // AOS (Animate on Scroll)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.aos').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
