@@ -1,151 +1,262 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خارطة الطريق — الإدارة الاستراتيجية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold-primary: #b48c36;
-            --slate-bg: #f8fafc;
-        }
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--slate-bg);
-            color: #1e293b;
-        }
-        .gold-text { color: var(--gold-primary); }
-        .gold-bg { background-color: var(--gold-primary); }
-        .gold-light-bg { background-color: #fcf9f2; }
-        
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خارطة الطريق — الإدارة الاستراتيجية</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a2744;
+    --navy-mid: #243259;
+    --gold: #9a7c3a;
+    --gold-light: #c4a35a;
+    --gold-pale: #f5efe0;
+    --cream: #faf8f4;
+    --ink: #1c1c1c;
+    --ink-mid: #4a4a4a;
+    --ink-light: #7a7a7a;
+    --rule: #d6cebb;
+    --white: #ffffff;
+    --green: #2d6a4f;
+    --green-pale: #f0faf5;
+  }
+  body { font-family: 'Cairo', sans-serif; background: var(--cream); color: var(--ink); direction: rtl; }
 
-        .roadmap-item {
-            background: white;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: 1.25rem;
-            transition: all 0.3s ease;
-        }
-        
-        .roadmap-item.active:hover {
-            transform: translateX(-5px);
-            border-color: var(--gold-primary);
-        }
+  .institution-bar { background: var(--navy); padding: 10px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold); }
+  .inst-name { font-family: 'Amiri', serif; color: #e8dfc8; font-size: 13px; line-height: 1.5; }
+  .inst-year { color: var(--gold-light); font-size: 11px; font-weight: 300; letter-spacing: 0.15em; margin-top: 2px; }
+  .emblem { width: 44px; height: 44px; border: 1.5px solid rgba(196,163,90,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-        .status-badge {
-            font-size: 0.7rem;
-            padding: 2px 10px;
-            border-radius: 99px;
-            font-weight: 700;
-        }
-    </style>
+  nav { background: var(--white); border-bottom: 1px solid var(--rule); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+  .nav-brand { font-family: 'Amiri', serif; font-size: 17px; color: var(--navy); text-decoration: none; padding: 14px 0; display: inline-block; }
+  .nav-links { display: flex; list-style: none; }
+  .nav-links a { display: block; padding: 16px 18px; font-size: 11px; font-weight: 600; color: var(--ink-mid); text-decoration: none; letter-spacing: 0.08em; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+  .nav-links a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+  .nav-links a.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: 700; }
+
+  .page-header { background: var(--white); border-bottom: 1px solid var(--rule); padding: 48px 40px 36px; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--ink-light); margin-bottom: 20px; }
+  .breadcrumb span { color: var(--gold); }
+  .page-title-block { display: flex; align-items: flex-start; gap: 24px; }
+  .title-rule { width: 4px; height: 64px; background: var(--gold); flex-shrink: 0; margin-top: 4px; }
+  .page-title { font-family: 'Amiri', serif; font-size: 34px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 6px; }
+  .page-subtitle { font-size: 13px; color: var(--ink-mid); }
+  .meta-tags { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+  .meta-tag { padding: 4px 12px; background: var(--gold-pale); border: 1px solid rgba(154,124,58,0.2); font-size: 10.5px; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; }
+  .meta-tag.green { background: var(--green-pale); border-color: rgba(45,106,79,0.2); color: var(--green); }
+
+  .content-area { max-width: 760px; margin: 0 auto; padding: 48px 40px 80px; }
+
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  /* Progress bar */
+  .progress-track { background: var(--rule); height: 4px; margin-bottom: 36px; position: relative; }
+  .progress-fill { background: var(--gold); height: 100%; width: 66.6%; position: relative; }
+  .progress-fill::after { content: '6 / 9'; position: absolute; left: 100%; top: -10px; transform: translateX(-50%); font-size: 9px; font-weight: 700; color: var(--gold); white-space: nowrap; }
+
+  /* Roadmap items */
+  .roadmap-list { display: flex; flex-direction: column; gap: 2px; }
+
+  /* Active item */
+  .roadmap-item { display: flex; align-items: stretch; border: 1px solid var(--rule); text-decoration: none; color: inherit; transition: border-color 0.2s; }
+  .roadmap-item.is-done { background: var(--white); }
+  .roadmap-item.is-done:hover { border-color: var(--gold); }
+  .roadmap-item.is-done:hover .rm-num-col { background: var(--navy-mid); }
+  .roadmap-item.is-pending { background: var(--cream); opacity: 0.6; cursor: default; pointer-events: none; }
+
+  .rm-num-col { width: 56px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--navy); transition: background 0.2s; }
+  .rm-num { font-size: 10px; font-weight: 700; color: rgba(232,223,200,0.4); writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: 0.05em; transition: color 0.2s; }
+  .roadmap-item.is-done:hover .rm-num { color: var(--gold-light); }
+  .is-pending .rm-num-col { background: #2c3a55; }
+
+  .rm-body { flex: 1; padding: 18px 22px; border-right: 1px solid var(--rule); }
+  .rm-num-label { font-size: 10px; font-weight: 700; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 4px; }
+  .is-pending .rm-num-label { color: var(--ink-light); }
+  .rm-title { font-family: 'Amiri', serif; font-size: 17px; color: var(--navy); }
+  .is-pending .rm-title { color: var(--ink-mid); }
+
+  .rm-status { flex-shrink: 0; width: 100px; display: flex; align-items: center; justify-content: center; padding: 0 16px; }
+  .status-pill { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 10px; border: 1px solid; }
+  .status-done { background: var(--green-pale); border-color: rgba(45,106,79,0.25); color: var(--green); }
+  .status-soon { background: var(--cream); border-color: var(--rule); color: var(--ink-light); }
+
+  /* Divider */
+  .ornament-divider { display: flex; align-items: center; gap: 12px; margin: 28px 0; }
+  .ornament-divider::before, .ornament-divider::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+  .ornament-center { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
+
+  footer { background: var(--navy); border-top: 3px solid var(--gold); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Amiri', serif; color: #e8dfc8; font-size: 15px; }
+  .footer-links { display: flex; gap: 20px; list-style: none; }
+  .footer-links a { font-size: 11px; color: rgba(232,223,200,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  @media (max-width: 640px) {
+    .institution-bar, nav, .page-header, .content-area, footer { padding-left: 20px; padding-right: 20px; }
+    .page-title { font-size: 26px; }
+    .nav-links { display: none; }
+    .rm-status { width: 80px; padding: 0 10px; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100 py-4">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="../index.html" class="text-xl font-extrabold tracking-tight text-slate-800">
-                <span>إدارة <span class="gold-text">استراتيجية</span></span>
-            </a>
-            <ul class="hidden md:flex gap-8 text-[11px] font-extrabold text-slate-500 uppercase tracking-widest">
-                <li><a href="../index.html" class="hover:text-amber-600 transition-colors">الرئيسية</a></li>
-                <li><a href="about.html" class="hover:text-amber-600 transition-colors">عن المقياس</a></li>
-                <li><a href="roadmap.html" class="gold-text">خارطة الطريق</a></li>
-                <li><a href="contact.html" class="hover:text-amber-600 transition-colors">التواصل</a></li>
-            </ul>
-        </div>
-    </nav>
+<div class="institution-bar">
+  <div>
+    <div class="inst-name">جامعة باتنة 1 — كلية العلوم الاقتصادية والتجارية وعلوم التسيير</div>
+    <div class="inst-year">السنة الجامعية 2024 – 2025</div>
+  </div>
+  <div class="emblem">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <polygon points="13,2 24,8 24,18 13,24 2,18 2,8" stroke="#c4a35a" stroke-width="1.2" fill="none"/>
+      <circle cx="13" cy="13" r="4" stroke="#c4a35a" stroke-width="1" fill="none"/>
+      <line x1="13" y1="2" x2="13" y2="9" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="13" y1="17" x2="13" y2="24" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="2" y1="8" x2="8.5" y2="11.5" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="17.5" y1="14.5" x2="24" y2="18" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="24" y1="8" x2="17.5" y2="11.5" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="8.5" y1="14.5" x2="2" y2="18" stroke="#c4a35a" stroke-width="0.8"/>
+    </svg>
+  </div>
+</div>
 
-    <!-- Header Section -->
-    <header class="relative py-16 bg-white border-b border-slate-50">
-        <div class="container mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[11px] font-bold mb-6">
-                التقدم الحالي
-            </div>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-                خارطة <span class="gold-text">الطريق</span>
-            </h1>
-            <p class="text-slate-400 text-sm max-w-xl mx-auto">المحاور المُنجزة والقادمة — يتم تحديث القائمة بشكل مستمر حسب تقدم الدروس.</p>
-        </div>
-    </header>
+<nav>
+  <a href="../index.html" class="nav-brand">الإدارة الاستراتيجية</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">الرئيسية</a></li>
+    <li><a href="about.html">عن المقياس</a></li>
+    <li><a href="roadmap.html" class="active">خارطة الطريق</a></li>
+    <li><a href="contact.html">التواصل</a></li>
+  </ul>
+</nav>
 
-    <!-- Roadmap Content -->
-    <main class="py-16 container mx-auto px-6 max-w-3xl">
-        <div class="space-y-4">
-            
-            <!-- Axis 1 -->
-            <div class="roadmap-item p-5 flex items-center gap-4 opacity-50 grayscale">
-                <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-slate-400">01</div>
-                <div class="flex-grow">
-                    <h3 class="font-bold text-slate-700">تطور الفكر الإستراتيجي</h3>
-                    <span class="status-badge bg-slate-100 text-slate-400">قريباً</span>
-                </div>
-            </div>
+<div class="page-header">
+  <div class="breadcrumb">
+    <span>الرئيسية</span>
+    <span>›</span>
+    خارطة الطريق
+  </div>
+  <div class="page-title-block">
+    <div class="title-rule"></div>
+    <div>
+      <h1 class="page-title">خارطة الطريق</h1>
+      <p class="page-subtitle">المحاور المُنجزة والقادمة — يتم التحديث بشكل مستمر</p>
+      <div class="meta-tags">
+        <span class="meta-tag green">6 محاور منجزة</span>
+        <span class="meta-tag">3 محاور قيد الإعداد</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <!-- Axis 2 -->
-            <div class="roadmap-item p-5 flex items-center gap-4 opacity-50 grayscale">
-                <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-slate-400">02</div>
-                <div class="flex-grow">
-                    <h3 class="font-bold text-slate-700">تحديد عناصر الاتجاه الإستراتيجي</h3>
-                    <span class="status-badge bg-slate-100 text-slate-400">قريباً</span>
-                </div>
-            </div>
+<div class="content-area">
 
-            <!-- Axis 3 - Active -->
-            <a href="../subjects/strategic-management/lessons/lesson-3.html" class="roadmap-item active p-5 flex items-center gap-4 border-amber-200 bg-white shadow-sm">
-                <div class="w-10 h-10 rounded-xl gold-bg flex items-center justify-center font-bold text-white">03</div>
-                <div class="flex-grow">
-                    <h3 class="font-bold text-slate-900">تحليل البيئة الخارجية</h3>
-                    <span class="status-badge bg-green-50 text-green-600">✅ متاح الآن</span>
-                </div>
-                <div class="text-amber-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-                    </svg>
-                </div>
-            </a>
+  <div class="section-label">نسبة الإنجاز</div>
+  <div class="progress-track">
+    <div class="progress-fill"></div>
+  </div>
 
-            <!-- Axis 4 -->
-            <div class="roadmap-item p-5 flex items-center gap-4 opacity-50 grayscale">
-                <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-slate-400">04</div>
-                <div class="flex-grow">
-                    <h3 class="font-bold text-slate-700">تحليل البيئة الداخلية</h3>
-                    <span class="status-badge bg-slate-100 text-slate-400">قريباً</span>
-                </div>
-            </div>
+  <div class="section-label">جميع المحاور</div>
 
-            <!-- Axis 5 -->
-            <div class="roadmap-item p-5 flex items-center gap-4 opacity-50 grayscale">
-                <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-slate-400">05</div>
-                <div class="flex-grow">
-                    <h3 class="font-bold text-slate-700">الخيارات الإستراتيجية — مستوى المؤسسة ككل</h3>
-                    <span class="status-badge bg-slate-100 text-slate-400">قريباً</span>
-                </div>
-            </div>
+  <div class="roadmap-list">
 
-            <!-- Axis 6 -->
-            <div class="roadmap-item p-5 flex items-center gap-4 opacity-50 grayscale">
-                <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-slate-400">06</div>
-                <div class="flex-grow">
-                    <h3 class="font-bold text-slate-700">الخيارات الإستراتيجية — وحدات الأعمال</h3>
-                    <span class="status-badge bg-slate-100 text-slate-400">قريباً</span>
-                </div>
-            </div>
+    <a href="../subjects/strategic-management/lessons/lesson-1.html" class="roadmap-item is-done">
+      <div class="rm-num-col"><span class="rm-num">AXIS 01</span></div>
+      <div class="rm-body">
+        <div class="rm-num-label">المحور الأول</div>
+        <div class="rm-title">تطور الفكر الإستراتيجي</div>
+      </div>
+      <div class="rm-status"><span class="status-pill status-done">متاح</span></div>
+    </a>
 
-        </div>
-    </main>
+    <a href="../subjects/strategic-management/lessons/lesson-2.html" class="roadmap-item is-done">
+      <div class="rm-num-col"><span class="rm-num">AXIS 02</span></div>
+      <div class="rm-body">
+        <div class="rm-num-label">المحور الثاني</div>
+        <div class="rm-title">تحديد عناصر الاتجاه الإستراتيجي</div>
+      </div>
+      <div class="rm-status"><span class="status-pill status-done">متاح</span></div>
+    </a>
 
-    <!-- Footer -->
-    <footer class="py-12 bg-white border-t border-slate-100 text-center">
-        <p class="text-slate-400 text-xs font-bold">بُني بمحبة لزملاء الدراسة — جامعة باتنة</p>
-    </footer>
+    <a href="../subjects/strategic-management/lessons/lesson-3.html" class="roadmap-item is-done">
+      <div class="rm-num-col"><span class="rm-num">AXIS 03</span></div>
+      <div class="rm-body">
+        <div class="rm-num-label">المحور الثالث</div>
+        <div class="rm-title">تحليل البيئة الخارجية</div>
+      </div>
+      <div class="rm-status"><span class="status-pill status-done">متاح</span></div>
+    </a>
+
+    <a href="../subjects/strategic-management/lessons/lesson-4.html" class="roadmap-item is-done">
+      <div class="rm-num-col"><span class="rm-num">AXIS 04</span></div>
+      <div class="rm-body">
+        <div class="rm-num-label">المحور الرابع</div>
+        <div class="rm-title">تحليل البيئة الداخلية</div>
+      </div>
+      <div class="rm-status"><span class="status-pill status-done">متاح</span></div>
+    </a>
+
+    <a href="../subjects/strategic-management/lessons/lesson-5.html" class="roadmap-item is-done">
+      <div class="rm-num-col"><span class="rm-num">AXIS 05</span></div>
+      <div class="rm-body">
+        <div class="rm-num-label">المحور الخامس</div>
+        <div class="rm-title">الخيارات الإستراتيجية — مستوى المؤسسة</div>
+      </div>
+      <div class="rm-status"><span class="status-pill status-done">متاح</span></div>
+    </a>
+
+    <a href="../subjects/strategic-management/lessons/lesson-6.html" class="roadmap-item is-done">
+      <div class="rm-num-col"><span class="rm-num">AXIS 06</span></div>
+      <div class="rm-body">
+        <div class="rm-num-label">المحور السادس</div>
+        <div class="rm-title">الخيارات الإستراتيجية — وحدات الأعمال</div>
+      </div>
+      <div class="rm-status"><span class="status-pill status-done">متاح</span></div>
+    </a>
+
+    <div class="ornament-divider"><div class="ornament-center"></div></div>
+
+    <div class="roadmap-item is-pending">
+      <div class="rm-num-col"><span class="rm-num">AXIS 07</span></div>
+      <div class="rm-body">
+        <div class="rm-num-label">المحور السابع</div>
+        <div class="rm-title">تقييم واختيار الاستراتيجية</div>
+      </div>
+      <div class="rm-status"><span class="status-pill status-soon">قريباً</span></div>
+    </div>
+
+    <div class="roadmap-item is-pending">
+      <div class="rm-num-col"><span class="rm-num">AXIS 08</span></div>
+      <div class="rm-body">
+        <div class="rm-num-label">المحور الثامن</div>
+        <div class="rm-title">تنفيذ الاستراتيجية والتغيير التنظيمي</div>
+      </div>
+      <div class="rm-status"><span class="status-pill status-soon">قريباً</span></div>
+    </div>
+
+    <div class="roadmap-item is-pending">
+      <div class="rm-num-col"><span class="rm-num">AXIS 09</span></div>
+      <div class="rm-body">
+        <div class="rm-num-label">المحور التاسع</div>
+        <div class="rm-title">الرقابة والتقييم الاستراتيجي</div>
+      </div>
+      <div class="rm-status"><span class="status-pill status-soon">قريباً</span></div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-brand">جامعة باتنة 1</span>
+  <ul class="footer-links">
+    <li><a href="#">سياسة الخصوصية</a></li>
+    <li><a href="about.html">عن المنصة</a></li>
+  </ul>
+</footer>
 
 </body>
 </html>
