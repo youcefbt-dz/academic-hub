@@ -1,221 +1,589 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المحور الأول: تطور الفكر الإستراتيجي - جامعة باتنة 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold-primary: #b48c36;
-            --gold-hover: #96732a;
-            --slate-bg: #f8fafc;
-            --deep-slate: #1e293b;
-        }
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--slate-bg);
-            color: var(--deep-slate);
-            line-height: 1.8;
-        }
-        .gold-text { color: var(--gold-primary); }
-        .gold-bg { background-color: var(--gold-primary); }
-        
-        .timeline-container {
-            position: relative;
-            padding: 2rem 0;
-        }
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            right: 1.5rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #e2e8f0;
-        }
-        .timeline-card {
-            position: relative;
-            margin-right: 4rem;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-        }
-        .timeline-card:hover {
-            transform: scale(1.01);
-            border-right: 4px solid var(--gold-primary);
-        }
-        .timeline-dot {
-            position: absolute;
-            right: -3.05rem;
-            top: 1.5rem;
-            width: 1rem;
-            height: 1rem;
-            border-radius: 50%;
-            background: var(--gold-primary);
-            border: 4px solid white;
-            box-shadow: 0 0 0 4px rgba(180, 140, 54, 0.1);
-        }
-        .concept-box {
-            background: linear-gradient(135deg, #ffffff 0%, #fcf9f2 100%);
-            border-right: 5px solid var(--gold-primary);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحور الأول: تطور الفكر الإستراتيجي — جامعة باتنة 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a2744;
+    --navy-mid: #243259;
+    --gold: #9a7c3a;
+    --gold-light: #c4a35a;
+    --gold-pale: #f5efe0;
+    --cream: #faf8f4;
+    --ink: #1c1c1c;
+    --ink-mid: #4a4a4a;
+    --ink-light: #7a7a7a;
+    --rule: #d6cebb;
+    --white: #ffffff;
+    --green: #2d6a4f;
+    --green-pale: #f0faf5;
+  }
+
+  body { font-family: 'Cairo', sans-serif; background: var(--cream); color: var(--ink); direction: rtl; line-height: 1.8; }
+
+  /* ===== INSTITUTION BAR ===== */
+  .institution-bar { background: var(--navy); padding: 10px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold); }
+  .inst-name { font-family: 'Amiri', serif; color: #e8dfc8; font-size: 13px; line-height: 1.5; }
+  .inst-year { color: var(--gold-light); font-size: 11px; font-weight: 300; letter-spacing: 0.15em; margin-top: 2px; }
+  .emblem { width: 44px; height: 44px; border: 1.5px solid rgba(196,163,90,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+  /* ===== NAV ===== */
+  nav { background: var(--white); border-bottom: 1px solid var(--rule); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+  .nav-brand { font-family: 'Amiri', serif; font-size: 17px; color: var(--navy); text-decoration: none; padding: 14px 0; }
+  .nav-back { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: var(--ink-mid); text-decoration: none; letter-spacing: 0.06em; padding: 14px 0; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+  .nav-back:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .nav-back svg { width: 14px; height: 14px; }
+
+  /* ===== PAGE HEADER ===== */
+  .page-header { background: var(--white); border-bottom: 1px solid var(--rule); padding: 48px 40px 36px; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--ink-light); margin-bottom: 20px; }
+  .breadcrumb a { color: var(--ink-light); text-decoration: none; } .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb span { color: var(--gold); }
+  .page-title-block { display: flex; align-items: flex-start; gap: 24px; }
+  .title-rule { width: 4px; min-height: 80px; background: var(--gold); flex-shrink: 0; margin-top: 4px; }
+  .lesson-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .page-title { font-family: 'Amiri', serif; font-size: 34px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 8px; }
+  .page-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.8; max-width: 680px; }
+  .meta-tags { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+  .meta-tag { padding: 4px 12px; background: var(--gold-pale); border: 1px solid rgba(154,124,58,0.2); font-size: 10.5px; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; }
+
+  /* ===== LAYOUT ===== */
+  .page-layout { display: grid; grid-template-columns: 220px 1fr; gap: 0; max-width: 1100px; margin: 0 auto; }
+
+  /* ===== SIDEBAR TOC ===== */
+  .toc-sidebar { padding: 40px 0 40px 24px; border-left: 1px solid var(--rule); position: sticky; top: 57px; height: calc(100vh - 57px); overflow-y: auto; }
+  .toc-title { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; padding-right: 16px; }
+  .toc-list { list-style: none; }
+  .toc-list li a { display: block; padding: 7px 16px; font-size: 12px; color: var(--ink-light); text-decoration: none; border-right: 2px solid transparent; transition: all 0.2s; line-height: 1.4; }
+  .toc-list li a:hover { color: var(--navy); border-right-color: var(--gold); background: var(--gold-pale); }
+  .toc-list li a.active { color: var(--navy); border-right-color: var(--gold); font-weight: 700; }
+  .toc-list .toc-sub a { padding-right: 28px; font-size: 11px; }
+
+  /* ===== CONTENT ===== */
+  .lesson-content { padding: 48px 40px 80px; border-right: 1px solid var(--rule); }
+
+  /* Section headers */
+  .section-block { margin-bottom: 56px; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; padding-bottom: 14px; border-bottom: 2px solid var(--navy); }
+  .section-num { font-family: 'Cairo', sans-serif; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 0.15em; flex-shrink: 0; }
+  .section-title { font-family: 'Amiri', serif; font-size: 24px; color: var(--navy); }
+
+  .subsection { margin-bottom: 36px; }
+  .subsection-title { font-family: 'Amiri', serif; font-size: 19px; color: var(--navy); margin-bottom: 14px; padding-right: 12px; border-right: 3px solid var(--gold); }
+
+  /* Body text */
+  .body-text { font-size: 14.5px; color: var(--ink-mid); line-height: 2; margin-bottom: 16px; text-align: justify; }
+  .body-text strong { color: var(--navy); font-weight: 700; }
+
+  /* Definition box */
+  .def-box { background: var(--white); border: 1px solid var(--rule); border-right: 4px solid var(--gold); padding: 22px 28px; margin: 20px 0; }
+  .def-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .def-text { font-family: 'Amiri', serif; font-size: 17px; color: var(--navy); line-height: 1.8; }
+
+  /* Quote box */
+  .quote-box { background: var(--navy); padding: 24px 32px; margin: 24px 0; position: relative; }
+  .quote-box::before { content: '"'; position: absolute; top: -10px; right: 20px; font-family: 'Amiri', serif; font-size: 80px; color: var(--gold); opacity: 0.3; line-height: 1; }
+  .quote-text { font-family: 'Amiri', serif; font-size: 17px; color: #e8dfc8; line-height: 1.8; position: relative; z-index: 1; }
+  .quote-source { font-size: 11px; color: var(--gold-light); margin-top: 10px; letter-spacing: 0.08em; }
+
+  /* Info grid */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin: 20px 0; }
+  .info-cell { background: var(--white); border: 1px solid var(--rule); padding: 20px 22px; }
+  .info-cell-label { font-size: 10px; font-weight: 700; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .info-cell-text { font-size: 13.5px; color: var(--ink-mid); line-height: 1.8; }
+  .info-cell-text strong { color: var(--navy); }
+
+  /* Timeline */
+  .timeline { position: relative; padding-right: 32px; margin: 24px 0; }
+  .timeline::before { content: ''; position: absolute; right: 10px; top: 0; bottom: 0; width: 1px; background: var(--rule); }
+  .timeline-item { position: relative; margin-bottom: 24px; }
+  .timeline-dot { position: absolute; right: -26px; top: 6px; width: 12px; height: 12px; background: var(--gold); border: 3px solid var(--cream); }
+  .timeline-period { font-size: 10px; font-weight: 700; color: var(--gold); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .timeline-title { font-family: 'Amiri', serif; font-size: 17px; color: var(--navy); margin-bottom: 8px; }
+  .timeline-body { font-size: 13.5px; color: var(--ink-mid); line-height: 1.9; }
+  .timeline-body ul { padding-right: 16px; margin-top: 8px; }
+  .timeline-body ul li { margin-bottom: 5px; list-style: none; padding-right: 12px; position: relative; }
+  .timeline-body ul li::before { content: '—'; position: absolute; right: 0; color: var(--gold); font-size: 12px; }
+
+  /* Comparison table */
+  .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+  .compare-table th { background: var(--navy); color: #e8dfc8; padding: 12px 16px; text-align: right; font-weight: 600; font-size: 12px; letter-spacing: 0.05em; }
+  .compare-table td { padding: 12px 16px; border: 1px solid var(--rule); color: var(--ink-mid); vertical-align: top; line-height: 1.7; background: var(--white); }
+  .compare-table tr:nth-child(even) td { background: var(--cream); }
+  .compare-table td:first-child { font-weight: 700; color: var(--navy); background: var(--gold-pale); border-right: 3px solid var(--gold); }
+
+  /* Highlight note */
+  .note-box { background: var(--gold-pale); border: 1px solid rgba(154,124,58,0.25); padding: 18px 22px; margin: 20px 0; display: flex; gap: 14px; align-items: flex-start; }
+  .note-icon { flex-shrink: 0; color: var(--gold); margin-top: 2px; }
+  .note-icon svg { width: 18px; height: 18px; }
+  .note-text { font-size: 13px; color: var(--ink-mid); line-height: 1.8; }
+  .note-text strong { color: var(--navy); }
+
+  /* Summary box */
+  .summary-box { background: var(--navy); padding: 36px 40px; margin: 40px 0 0; }
+  .summary-title { font-family: 'Amiri', serif; font-size: 20px; color: var(--gold-light); margin-bottom: 16px; }
+  .summary-points { list-style: none; }
+  .summary-points li { font-size: 13.5px; color: #c8c0b0; line-height: 1.9; padding-right: 20px; position: relative; margin-bottom: 8px; }
+  .summary-points li::before { content: '✦'; position: absolute; right: 0; color: var(--gold); font-size: 10px; top: 5px; }
+
+  /* Nav between lessons */
+  .lesson-nav { display: flex; justify-content: flex-start; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .lesson-nav-btn { display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: var(--white); border: 1px solid var(--rule); text-decoration: none; color: var(--ink-mid); font-size: 12px; font-weight: 600; transition: all 0.2s; }
+  .lesson-nav-btn:hover { border-color: var(--gold); color: var(--navy); }
+  .lesson-nav-btn svg { width: 14px; height: 14px; }
+
+  /* Footer */
+  footer { background: var(--navy); border-top: 3px solid var(--gold); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Amiri', serif; color: #e8dfc8; font-size: 15px; }
+  .footer-links { display: flex; gap: 20px; list-style: none; }
+  .footer-links a { font-size: 11px; color: rgba(232,223,200,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  @media (max-width: 768px) {
+    .institution-bar, nav, .page-header, .lesson-content, footer { padding-left: 20px; padding-right: 20px; }
+    .page-layout { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+    .page-title { font-size: 26px; }
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 py-4">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="../../../index.html" class="text-xl font-extrabold tracking-tight text-slate-800">
-                <span>إدارة <span class="gold-text">استراتيجية</span></span>
-            </a>
-            <a href="../../../index.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-amber-600 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7 7-7" />
-                </svg>
-                العودة للقائمة
-            </a>
-        </div>
-    </nav>
+<!-- Institution Bar -->
+<div class="institution-bar">
+  <div>
+    <div class="inst-name">جامعة باتنة 1 — كلية العلوم الاقتصادية والتجارية وعلوم التسيير</div>
+    <div class="inst-year">السنة الجامعية 2024 – 2025</div>
+  </div>
+  <div class="emblem">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <polygon points="13,2 24,8 24,18 13,24 2,18 2,8" stroke="#c4a35a" stroke-width="1.2" fill="none"/>
+      <circle cx="13" cy="13" r="4" stroke="#c4a35a" stroke-width="1" fill="none"/>
+      <line x1="13" y1="2" x2="13" y2="9" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="13" y1="17" x2="13" y2="24" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="2" y1="8" x2="8.5" y2="11.5" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="17.5" y1="14.5" x2="24" y2="18" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="24" y1="8" x2="17.5" y2="11.5" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="8.5" y1="14.5" x2="2" y2="18" stroke="#c4a35a" stroke-width="0.8"/>
+    </svg>
+  </div>
+</div>
 
-    <!-- Header Section -->
-    <header class="py-12 bg-white border-b border-slate-50">
-        <div class="container mx-auto px-6 text-center">
-            <span class="inline-block px-4 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold mb-4 uppercase tracking-widest">المحور الدراسي الأول</span>
-            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">تطور الفكر الإستراتيجي</h1>
-            <p class="text-slate-500 max-w-2xl mx-auto text-sm leading-relaxed">
-                رحلة استكشافية عبر الزمن لفهم كيف تحولت الاستراتيجية من مفهوم عسكري بحت إلى جوهر إدارة المؤسسات الحديثة.
+<!-- Nav -->
+<nav>
+  <a href="../../../index.html" class="nav-brand">الإدارة الاستراتيجية</a>
+  <a href="../../../index.html" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7 7-7"/></svg>
+    العودة إلى القائمة
+  </a>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="../../../index.html">الرئيسية</a>
+    <span>›</span>
+    <a href="../../../index.html">الإدارة الاستراتيجية</a>
+    <span>›</span>
+    المحور الأول
+  </div>
+  <div class="page-title-block">
+    <div class="title-rule"></div>
+    <div>
+      <div class="lesson-tag">المحور الدراسي الأول</div>
+      <h1 class="page-title">تطور الفكر الإستراتيجي</h1>
+      <p class="page-desc">رحلة عبر الزمن لفهم كيف تحولت الاستراتيجية من مفهوم عسكري إلى جوهر إدارة المؤسسات الحديثة — من أصولها اللغوية إلى المدارس الفكرية الكبرى.</p>
+      <div class="meta-tags">
+        <span class="meta-tag">إدارة استراتيجية</span>
+        <span class="meta-tag">السنة الثالثة</span>
+        <span class="meta-tag">الفصل الثاني</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Layout: Sidebar + Content -->
+<div class="page-layout">
+
+  <!-- TOC Sidebar -->
+  <aside class="toc-sidebar">
+    <div class="toc-title">محتويات المحور</div>
+    <ul class="toc-list">
+      <li><a href="#section-1">أولاً — مفهوم الاستراتيجية</a></li>
+      <li class="toc-sub"><a href="#s1-lugha">الأصل اللغوي</a></li>
+      <li class="toc-sub"><a href="#s1-idari">المفهوم الإداري</a></li>
+      <li class="toc-sub"><a href="#s1-tanakud">مفهوم الاستراتيجية بين الباحثين</a></li>
+      <li><a href="#section-2">ثانياً — الإدارة الاستراتيجية</a></li>
+      <li class="toc-sub"><a href="#s2-tarif">التعريف والخصائص</a></li>
+      <li class="toc-sub"><a href="#s2-ahamiya">الأهمية والأهداف</a></li>
+      <li><a href="#section-3">ثالثاً — مراحل التطور التاريخي</a></li>
+      <li class="toc-sub"><a href="#s3-m1">التخطيط التشغيلي</a></li>
+      <li class="toc-sub"><a href="#s3-m2">التخطيط الاستراتيجي</a></li>
+      <li class="toc-sub"><a href="#s3-m3">الإدارة الاستراتيجية</a></li>
+      <li class="toc-sub"><a href="#s3-m4">الاستجابة والابتكار</a></li>
+      <li><a href="#section-4">رابعاً — المدارس الفكرية</a></li>
+      <li class="toc-sub"><a href="#s4-mdaress">مدرسة التصميم وبورتر</a></li>
+      <li class="toc-sub"><a href="#s4-mawared">مدرسة الموارد</a></li>
+      <li><a href="#section-5">خامساً — الخلاصة</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="lesson-content">
+
+    <!-- =================== SECTION 1 =================== -->
+    <div class="section-block" id="section-1">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">مفهوم الاستراتيجية</h2>
+      </div>
+
+      <!-- 1.1 -->
+      <div class="subsection" id="s1-lugha">
+        <h3 class="subsection-title">الأصل اللغوي والتاريخي</h3>
+        <p class="body-text">
+          كلمة <strong>استراتيجية</strong> مشتقة من الكلمة اليونانية <strong>"Strategos"</strong>، وهي مركّبة من مقطعين: <strong>"Stratos"</strong> وتعني الجيش، و<strong>"Agein"</strong> وتعني القيادة أو التوجيه. وعليه فإن المعنى الأصلي للاستراتيجية هو <em>فن قيادة الجيوش وتوجيه القوات في الميدان</em>، وهو ما ارتبط تاريخياً بالعمل العسكري.
+        </p>
+        <p class="body-text">
+          استُخدم هذا المفهوم على نطاق واسع في الحضارات القديمة؛ إذ كان القادة العسكريون في اليونان القديمة والإمبراطورية الرومانية يُلزَمون بوضع خطط شاملة لتحقيق النصر على العدو مع الحد من الخسائر وتحقيق أقصى استخدام ممكن للموارد المتاحة. ومن أبرز الأعمال التي أرّخت لهذا الفكر: كتاب <strong>"فن الحرب"</strong> للجنرال الصيني سون تزو في القرن الخامس قبل الميلاد، الذي لا يزال يُدرَّس في أعرق كليات الأعمال حتى اليوم.
+        </p>
+        <div class="quote-box">
+          <p class="quote-text">اعرف عدوك واعرف نفسك، وفي مئة معركة لن تتعرض للهزيمة.</p>
+          <div class="quote-source">— سون تزو، فن الحرب، القرن الخامس ق.م</div>
+        </div>
+        <p class="body-text">
+          لم يُنقل هذا المفهوم إلى عالم الأعمال بشكل فوري؛ بل تدرّج تاريخياً مع نمو المؤسسات الكبرى في القرن التاسع عشر، وخاصة مع ظهور الشركات الصناعية الكبرى في أعقاب الثورة الصناعية، حيث أدرك أصحابها ضرورة التخطيط البعيد المدى لضمان البقاء في بيئة تنافسية.
+        </p>
+      </div>
+
+      <!-- 1.2 -->
+      <div class="subsection" id="s1-idari">
+        <h3 class="subsection-title">المفهوم الإداري للاستراتيجية</h3>
+        <p class="body-text">
+          بعد انتقال المفهوم إلى عالم الأعمال، تعددت التعريفات وتنوعت المقاربات تبعاً للمدرسة الفكرية التي ينتمي إليها كل باحث. غير أن أغلب التعريفات تشترك في عناصر محورية ثلاثة: <strong>الأهداف بعيدة المدى، وتخصيص الموارد، والميزة التنافسية</strong>.
+        </p>
+
+        <div class="def-box">
+          <div class="def-label">تعريف — ألفريد شاندلر (1962)</div>
+          <p class="def-text">الاستراتيجية هي تحديد الأهداف والغايات طويلة الأجل للمؤسسة، واعتماد مسارات العمل وتخصيص الموارد اللازمة لتحقيق هذه الغايات.</p>
+        </div>
+
+        <div class="def-box">
+          <div class="def-label">تعريف — إيغور أنسوف (1965)</div>
+          <p class="def-text">الاستراتيجية هي القاعدة التي تحكم قرارات المؤسسة في علاقتها ببيئتها الخارجية، وتشمل: نطاق أعمالها، ومتطلبات تنافسها، وطريقة تنمية مواردها.</p>
+        </div>
+
+        <div class="def-box">
+          <div class="def-label">تعريف — مايكل بورتر (1980)</div>
+          <p class="def-text">الاستراتيجية هي اختيار موقع تنافسي مميز في الصناعة، من خلال تقديم قيمة فريدة للزبائن بطريقة مختلفة عن المنافسين أو بتكلفة أقل.</p>
+        </div>
+
+        <p class="body-text">
+          يتضح من هذه التعريفات أن الاستراتيجية تتجاوز مجرد "الخطة" لتُصبح <strong>نظاماً متكاملاً من الاختيارات</strong> التي تحدد هوية المؤسسة وطريقة تعاملها مع بيئتها الداخلية والخارجية. وهي تجمع بين البُعد الزمني (المدى البعيد)، والبُعد التنظيمي (تخصيص الموارد)، والبُعد التنافسي (تحقيق التميز).
+        </p>
+      </div>
+
+      <!-- 1.3 -->
+      <div class="subsection" id="s1-tanakud">
+        <h3 class="subsection-title">مستويات الاستراتيجية في المؤسسة</h3>
+        <p class="body-text">لا تُوجد استراتيجية واحدة في المؤسسة الكبيرة، بل تتدرج إلى ثلاثة مستويات متمايزة:</p>
+
+        <div class="info-grid">
+          <div class="info-cell">
+            <div class="info-cell-label">المستوى الأول</div>
+            <p class="info-cell-text"><strong>استراتيجية المؤسسة الكلية (Corporate Strategy)</strong><br>تُحدد المجالات التي ستنشط فيها المؤسسة ككل، والتوازن بين محافظ الأعمال المختلفة. تُصاغ على مستوى مجلس الإدارة والإدارة العليا.</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">المستوى الثاني</div>
+            <p class="info-cell-text"><strong>استراتيجية وحدة الأعمال (Business Unit Strategy)</strong><br>تُحدد كيفية المنافسة في قطاع معين: هل بالتمييز؟ أم بالتكلفة المنخفضة؟ أم بالتركيز على شريحة محددة؟</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">المستوى الثالث</div>
+            <p class="info-cell-text"><strong>الاستراتيجية الوظيفية (Functional Strategy)</strong><br>خطط وظائف المؤسسة (التسويق، الإنتاج، الموارد البشرية) لدعم الاستراتيجيات الأعلى مستوى وتحقيق الانسجام التشغيلي.</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">العلاقة بينها</div>
+            <p class="info-cell-text">المستويات الثلاثة <strong>مترابطة وليست مستقلة</strong>: كل مستوى يُقيّد المستوى الأدنى ويُغذيه في آن واحد. نجاح أي مستوى يعتمد على التنسيق الدقيق مع المستويين الآخرين.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== SECTION 2 =================== -->
+    <div class="section-block" id="section-2">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">الإدارة الاستراتيجية — التعريف والخصائص</h2>
+      </div>
+
+      <div class="subsection" id="s2-tarif">
+        <h3 class="subsection-title">تعريف الإدارة الاستراتيجية</h3>
+        <p class="body-text">
+          الإدارة الاستراتيجية هي <strong>العملية المستمرة والمتكاملة</strong> التي تقوم بها المؤسسة لصياغة استراتيجيتها وتنفيذها والرقابة عليها، بما يُمكّنها من تحقيق رسالتها وأهدافها في ظل بيئة متغيرة وتنافسية.
+        </p>
+
+        <div class="def-box">
+          <div class="def-label">تعريف جامع</div>
+          <p class="def-text">الإدارة الاستراتيجية هي مجموعة القرارات والإجراءات الإدارية التي تُحدد الأداء طويل المدى للمؤسسة، وتشمل: المسح البيئي الداخلي والخارجي، وصياغة الاستراتيجية، وتطبيقها، والتقييم والرقابة.</p>
+        </div>
+
+        <p class="body-text">تتميز الإدارة الاستراتيجية بجملة من الخصائص التي تُفرّقها عن الإدارة التشغيلية العادية:</p>
+
+        <div class="info-grid">
+          <div class="info-cell">
+            <div class="info-cell-label">الشمولية</div>
+            <p class="info-cell-text">تنظر إلى المؤسسة كوحدة متكاملة وليس كأجزاء منفصلة، وتُنسّق بين مختلف الوظائف والإدارات نحو هدف مشترك.</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">المدى الزمني البعيد</div>
+            <p class="info-cell-text">تتخذ منظوراً يتراوح بين 3 و10 سنوات أو أكثر، مع القدرة على المراجعة المستمرة حسب تغيرات البيئة.</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">التوجه البيئي</div>
+            <p class="info-cell-text">تنطلق من تحليل دقيق للبيئة الخارجية (الفرص والتهديدات) والداخلية (القوة والضعف) قبل صياغة أي قرار استراتيجي.</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">التفاعلية</div>
+            <p class="info-cell-text">ليست عملية خطية صارمة بل دورة متجددة تُعدَّل باستمرار في ضوء نتائج التنفيذ ومستجدات البيئة.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection" id="s2-ahamiya">
+        <h3 class="subsection-title">أهمية الإدارة الاستراتيجية وأهدافها</h3>
+        <p class="body-text">
+          تُكسب الإدارة الاستراتيجية المؤسسةَ قدرةً على <strong>التنبؤ بالتغيير والتكيف معه</strong> بدلاً من مجرد رد الفعل عليه. وقد أثبتت الدراسات الأكاديمية والتجربة الميدانية أن المؤسسات التي تعتمد الإدارة الاستراتيجية تتفوق في أدائها المالي وقدرتها التنافسية على المدى البعيد مقارنة بتلك التي تعمل بردود أفعال آنية.
+        </p>
+
+        <div class="note-box">
+          <div class="note-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg></div>
+          <p class="note-text">من أبرز أهداف الإدارة الاستراتيجية: <strong>توحيد جهود العاملين</strong> نحو غاية مشتركة، وتحقيق <strong>الاستخدام الأمثل للموارد</strong> النادرة، وبناء <strong>مزايا تنافسية مستدامة</strong> يصعب على المنافسين تقليدها، فضلاً عن تمكين الإدارة من <strong>تقييم الأداء</strong> وفق معايير استراتيجية واضحة.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== SECTION 3 =================== -->
+    <div class="section-block" id="section-3">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">مراحل التطور التاريخي للفكر الاستراتيجي</h2>
+      </div>
+
+      <p class="body-text">
+        لم يظهر الفكر الاستراتيجي دفعةً واحدة، بل مرّ بمراحل تطور متتالية، كل مرحلة استجابة لتحديات اقتصادية وتنظيمية ومعرفية محددة. يمكن تقسيم هذا التطور إلى أربع مراحل كبرى:
+      </p>
+
+      <div class="timeline" id="s3-m1">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">الخمسينيات — الستينيات من القرن العشرين</div>
+          <div class="timeline-title">المرحلة الأولى: التخطيط التشغيلي (Operational Planning)</div>
+          <div class="timeline-body">
+            <p>في أعقاب الحرب العالمية الثانية، شهد الاقتصاد الغربي نمواً متسارعاً وطلباً متزايداً على المنتجات. في هذا السياق، كان اهتمام المديرين منصبّاً على:</p>
+            <ul>
+              <li>إعداد الموازنات السنوية التفصيلية والتحكم في التكاليف</li>
+              <li>التنبؤ بالمبيعات والإيرادات بناءً على الاتجاهات السابقة</li>
+              <li>تحقيق الكفاءة التشغيلية الداخلية وتحسين الإنتاجية</li>
+              <li>التخطيط قصير المدى (سنة واحدة في الغالب)</li>
+            </ul>
+            <p style="margin-top: 10px;">كانت البيئة الخارجية تُعدّ <strong>مستقرة نسبياً وقابلة للتنبؤ</strong>، مما جعل التخطيط الداخلي كافياً. المؤسسات الرائدة في هذه الحقبة مثل جنرال موتورز كانت تتمتع بمواقع شبه احتكارية لا تستدعي استراتيجية تنافسية معقدة.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" id="s3-m2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">السبعينيات من القرن العشرين</div>
+          <div class="timeline-title">المرحلة الثانية: التخطيط الاستراتيجي (Strategic Planning)</div>
+          <div class="timeline-body">
+            <p>مع تصاعد حدة المنافسة وظهور صدمة النفط عام 1973 وتعقّد البيئة الاقتصادية، أدرك المديرون أن التخطيط التشغيلي وحده لم يعد كافياً. برزت في هذه الحقبة:</p>
+            <ul>
+              <li>مصفوفة BCG (مجموعة بوسطن الاستشارية) لتحليل محفظة الأعمال</li>
+              <li>نماذج تحليل الصناعة واستشراف المستقبل (Scenario Planning)</li>
+              <li>ظهور إدارات متخصصة في التخطيط الاستراتيجي داخل الشركات الكبرى</li>
+              <li>التوسع إلى آفاق زمنية أطول (3 إلى 5 سنوات)</li>
+            </ul>
+            <p style="margin-top: 10px;">لكن النقد الأساسي الذي وُجّه لهذه المرحلة هو أن التخطيط ظل <strong>نشاطاً وظيفياً منعزلاً</strong> تقوم به نخبة من الخبراء بمعزل عن واقع التنفيذ، مما خلق هوّة واسعة بين "المخططين" و"المنفذين".
             </p>
-        </div>
-    </header>
-
-    <main class="py-12 container mx-auto px-6 max-w-4xl">
-        
-        <!-- Section 1: Definitions -->
-        <section class="mb-16">
-            <div class="flex items-center gap-3 mb-8">
-                <div class="w-10 h-10 rounded-xl gold-bg flex items-center justify-center text-white shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                </div>
-                <h2 class="text-2xl font-extrabold text-slate-800">مفهوم الاستراتيجية</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="concept-box p-6 rounded-2xl shadow-sm">
-                    <h3 class="font-extrabold text-amber-700 mb-2">الأصل اللغوي</h3>
-                    <p class="text-slate-600 text-sm">
-                        مشتقة من الكلمة اليونانية <span class="font-bold italic">"Strategos"</span> وتعني فن القيادة العسكرية وتوجيه القوات في الميدان.
-                    </p>
-                </div>
-                <div class="concept-box p-6 rounded-2xl shadow-sm">
-                    <h3 class="font-extrabold text-amber-700 mb-2">المفهوم الإداري</h3>
-                    <p class="text-slate-600 text-sm">
-                        هي رؤية المؤسسة طويلة المدى، وتحديد الأهداف الرئيسية، وتخصيص الموارد اللازمة لتحقيق ميزة تنافسية مستدامة.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Historical Timeline -->
-        <section class="mb-16">
-            <div class="flex items-center gap-3 mb-8">
-                <div class="w-10 h-10 rounded-xl gold-bg flex items-center justify-center text-white shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <h2 class="text-2xl font-extrabold text-slate-800">مراحل التطور التاريخي</h2>
-            </div>
-
-            <div class="timeline-container">
-                <!-- Phase 1 -->
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <span class="text-[10px] font-black text-amber-600 uppercase tracking-tighter">الخمسينيات - الستينيات</span>
-                    <h4 class="text-lg font-extrabold mt-1 mb-2">مرحلة التخطيط التشغيلي</h4>
-                    <p class="text-slate-500 text-sm italic">التركيز على الموازنات المالية والتنبؤ بالنمو الداخلي للمؤسسة.</p>
-                </div>
-
-                <!-- Phase 2 -->
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <span class="text-[10px] font-black text-amber-600 uppercase tracking-tighter">السبعينيات</span>
-                    <h4 class="text-lg font-extrabold mt-1 mb-2">مرحلة التخطيط الاستراتيجي</h4>
-                    <p class="text-slate-500 text-sm italic">ظهور النماذج التحليلية مثل مصفوفة BCG والتركيز على تحليل المحفظة الاستثمارية.</p>
-                </div>
-
-                <!-- Phase 3 -->
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <span class="text-[10px] font-black text-amber-600 uppercase tracking-tighter">الثمانينيات</span>
-                    <h4 class="text-lg font-extrabold mt-1 mb-2">مرحلة الإدارة الاستراتيجية</h4>
-                    <p class="text-slate-500 text-sm italic">ربط التخطيط بالتنفيذ، والتركيز على العوامل الخارجية والمنافسة (مايكل بورتر).</p>
-                </div>
-
-                <!-- Phase 4 -->
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <span class="text-[10px] font-black text-amber-600 uppercase tracking-tighter">منذ التسعينيات</span>
-                    <h4 class="text-lg font-extrabold mt-1 mb-2">مرحلة الاستجابة السريعة والابتكار</h4>
-                    <p class="text-slate-500 text-sm italic">التركيز على الموارد الداخلية، التعلم التنظيمي، والذكاء الاستراتيجي في بيئة مضطربة.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Key Pillars -->
-        <section class="mb-12 bg-slate-900 rounded-[2.5rem] p-10 text-white overflow-hidden relative">
-            <div class="relative z-10">
-                <h2 class="text-2xl font-extrabold mb-8 text-center">لماذا ندرس تطور الفكر الاستراتيجي؟</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div class="text-amber-500 font-black text-3xl mb-2">01</div>
-                        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">فهم السياق</p>
-                        <p class="text-sm mt-2 text-slate-300">لمعرفة أسباب نجاح وفشل النماذج السابقة عبر الزمن.</p>
-                    </div>
-                    <div class="text-center border-y md:border-y-0 md:border-x border-slate-800 py-6 md:py-0">
-                        <div class="text-amber-500 font-black text-3xl mb-2">02</div>
-                        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">التكيف</p>
-                        <p class="text-sm mt-2 text-slate-300">القدرة على اختيار الأداة الاستراتيجية المناسبة لطبيعة العصر.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-amber-500 font-black text-3xl mb-2">03</div>
-                        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">الاستشراف</p>
-                        <p class="text-sm mt-2 text-slate-300">بناء فكر مرن قادر على مواجهة تحديات المستقبل الرقمي.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl"></div>
-        </section>
-
-        <!-- Summary Note -->
-        <div class="bg-amber-50 border border-amber-100 rounded-2xl p-6 flex gap-4 items-start">
-            <div class="text-amber-600">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-            </div>
-            <div>
-                <h4 class="font-bold text-amber-900 text-sm mb-1">خلاصة المحور</h4>
-                <p class="text-amber-800 text-xs leading-relaxed">
-                    إن تطور الفكر الاستراتيجي لم يكن مجرد استبدال نظريات قديمة بجديدة، بل هو تراكم معرفي جعل من الاستراتيجية عملية "مستمرة" وليست مجرد "خطة سنوية".
-                </p>
-            </div>
+          </div>
         </div>
 
-    </main>
+        <div class="timeline-item" id="s3-m3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">الثمانينيات من القرن العشرين</div>
+          <div class="timeline-title">المرحلة الثالثة: الإدارة الاستراتيجية (Strategic Management)</div>
+          <div class="timeline-body">
+            <p>شكّل هذا العقد نقلة نوعية حقيقية في الفكر الاستراتيجي، بفضل ثلاثة عوامل رئيسية:</p>
+            <ul>
+              <li><strong>الصعود التنافسي الياباني</strong>: كشف عن عيوب المقاربة الأمريكية التقليدية في الجودة والابتكار</li>
+              <li><strong>أعمال مايكل بورتر</strong>: كتابه "الاستراتيجية التنافسية" (1980) أحدث ثورة في فهم القوى التنافسية وتحليل الصناعة</li>
+              <li><strong>ربط الاستراتيجية بالتنفيذ</strong>: إدراك أن الاستراتيجية ليست فقط "ماذا نريد" بل "كيف نصل"</li>
+            </ul>
+            <p style="margin-top: 10px;">أصبحت الإدارة الاستراتيجية في هذه المرحلة عملية تشمل <strong>التحليل البيئي + الصياغة + التنفيذ + الرقابة</strong>، وهو النموذج الذي لا يزال يشكّل العمود الفقري للمادة إلى اليوم.</p>
+          </div>
+        </div>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-slate-100 text-center">
-        <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.4em]">جامعة باتنة 1 - كلية العلوم الاقتصادية</p>
-    </footer>
+        <div class="timeline-item" id="s3-m4">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">التسعينيات وما بعدها — العصر الرقمي</div>
+          <div class="timeline-title">المرحلة الرابعة: الاستجابة السريعة والتعلم التنظيمي</div>
+          <div class="timeline-body">
+            <p>أفرزت ثورة المعلومات وظاهرة العولمة بيئة فائقة التعقيد لا يمكن "التخطيط" لها بالمعنى الكلاسيكي. برزت مفاهيم جديدة:</p>
+            <ul>
+              <li><strong>المنظمة المتعلمة</strong> (Learning Organization) — بيتر سنج</li>
+              <li><strong>الكفاءات الجوهرية</strong> (Core Competencies) — براهالاد وهاميل (1990)</li>
+              <li><strong>الاستراتيجية الزرقاء</strong> (Blue Ocean Strategy) — خلق أسواق جديدة بدلاً من المنافسة في أسواق قائمة</li>
+              <li><strong>الفكر الاستراتيجي الرشيق</strong> (Agile Strategy) في عالم VUCA (متقلب، غامض، معقد، ملتبس)</li>
+            </ul>
+            <p style="margin-top: 10px;">في هذه المرحلة، لم تعد الاستراتيجية حكراً على "قمة الهرم" بل أصبحت <strong>ثقافة مؤسسية مُعاشة</strong> على جميع المستويات، حيث كل موظف يفهم دوره في المشروع الاستراتيجي الكبير للمؤسسة.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>المرحلة</th>
+            <th>الفترة</th>
+            <th>المحور الرئيسي</th>
+            <th>الأدوات الأبرز</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>التخطيط التشغيلي</td>
+            <td>1950 – 1960</td>
+            <td>الكفاءة الداخلية والموازنات</td>
+            <td>الموازنة السنوية، التنبؤ بالمبيعات</td>
+          </tr>
+          <tr>
+            <td>التخطيط الاستراتيجي</td>
+            <td>1970 – 1980</td>
+            <td>تحليل المحفظة والنمو</td>
+            <td>مصفوفة BCG، تحليل السيناريو</td>
+          </tr>
+          <tr>
+            <td>الإدارة الاستراتيجية</td>
+            <td>1980 – 1990</td>
+            <td>التنافسية والتنفيذ</td>
+            <td>نموذج بورتر، سلسلة القيمة، SWOT</td>
+          </tr>
+          <tr>
+            <td>التعلم والرشاقة</td>
+            <td>1990 – اليوم</td>
+            <td>الموارد والابتكار والتكيف</td>
+            <td>RBV، الكفاءات الجوهرية، Agile</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- =================== SECTION 4 =================== -->
+    <div class="section-block" id="section-4">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">المدارس الفكرية الكبرى في الاستراتيجية</h2>
+      </div>
+
+      <p class="body-text">
+        يُميّز الباحثون في الفكر الاستراتيجي بين عدة مدارس فكرية، كل منها تنطلق من منطلق فلسفي مختلف حول طبيعة الاستراتيجية وكيفية صياغتها. أبرز هذه المدارس مدرستان متكاملتان:
+      </p>
+
+      <div class="subsection" id="s4-mdaress">
+        <h3 class="subsection-title">مدرسة التموضع التنافسي — مايكل بورتر</h3>
+        <p class="body-text">
+          تنطلق هذه المدرسة من فكرة أن <strong>الاستراتيجية تُحدد من الخارج إلى الداخل</strong>: أي أن هيكل الصناعة والبيئة التنافسية هما اللذان يُحددان الاستراتيجية المثلى للمؤسسة. قدّم بورتر نموذجه الشهير <strong>"القوى الخمس"</strong> عام 1979، الذي يُحلل الصناعة من خلال:
+        </p>
+        <div class="info-grid">
+          <div class="info-cell">
+            <div class="info-cell-label">القوة الأولى</div>
+            <p class="info-cell-text"><strong>حدة المنافسة بين الشركات القائمة</strong>: مدى شراسة التنافس على الحصة السوقية بين الفاعلين الحاليين في الصناعة.</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">القوة الثانية</div>
+            <p class="info-cell-text"><strong>تهديد الداخلين الجدد</strong>: مدى سهولة دخول منافسين جدد إلى السوق وتهديد الوضع الراهن (حواجز الدخول).</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">القوة الثالثة</div>
+            <p class="info-cell-text"><strong>تهديد المنتجات البديلة</strong>: وجود منتجات أو خدمات أخرى يمكن أن تُلبّي الحاجة ذاتها وتسحب الطلب من الصناعة.</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">القوتان الرابعة والخامسة</div>
+            <p class="info-cell-text"><strong>القدرة التفاوضية للموردين والمشترين</strong>: مدى قدرة كل طرف على فرض شروطه والتأثير في هامش ربحية الصناعة.</p>
+          </div>
+        </div>
+        <p class="body-text" style="margin-top: 16px;">
+          بناءً على هذا التحليل، يرى بورتر أن هناك ثلاث استراتيجيات عامة للنجاح التنافسي: <strong>قيادة التكلفة</strong> (تقديم المنتج بأدنى تكلفة)، <strong>التمييز</strong> (تقديم ميزات فريدة يدفع الزبون من أجلها سعراً أعلى)، و<strong>التركيز</strong> (استهداف شريحة محددة من السوق).
+        </p>
+      </div>
+
+      <div class="subsection" id="s4-mawared">
+        <h3 class="subsection-title">مدرسة الموارد والكفاءات — RBV</h3>
+        <p class="body-text">
+          في نقيض جزئي لمقاربة بورتر، ظهرت في التسعينيات <strong>نظرية الموارد (Resource-Based View)</strong> التي تنطلق من فكرة أن المزايا التنافسية المستدامة لا تأتي من الصناعة بل من <strong>الداخل</strong>: من الموارد والكفاءات الفريدة التي تملكها المؤسسة والتي يصعب على المنافسين تقليدها.
+        </p>
+
+        <div class="def-box">
+          <div class="def-label">براهالاد وهاميل (1990) — الكفاءات الجوهرية</div>
+          <p class="def-text">الكفاءة الجوهرية (Core Competency) هي التعلّم الجماعي للمؤسسة، وخاصة القدرة على تنسيق مهارات الإنتاج المتنوعة ودمج تيارات التكنولوجيا المختلفة. ولكي تُعدّ كفاءةً جوهرية يجب أن: تُتيح الوصول إلى أسواق متعددة، وتُسهم في تحسين قيمة المنتج للزبون، ويصعب على المنافسين تقليدها.</p>
+        </div>
+
+        <p class="body-text">
+          وضع جاي بارني عام 1991 معيار <strong>VRIN</strong> لتحديد الموارد التي تولّد ميزة تنافسية مستدامة: يجب أن يكون المورد <strong>ذا قيمة (Valuable)</strong>، و<strong>نادراً (Rare)</strong>، و<strong>غير قابل للتقليد (Inimitable)</strong>، و<strong>غير قابل للاستبدال (Non-substitutable)</strong>. المورد الذي يستوفي هذه المعايير الأربعة يمنح المؤسسة تفوقاً تنافسياً حقيقياً.
+        </p>
+
+        <div class="note-box">
+          <div class="note-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg></div>
+          <p class="note-text"><strong>التكامل بين المدرستين:</strong> الفكر الاستراتيجي الحديث لا يرى تعارضاً بين المقاربتين، بل يدعو إلى توظيفهما معاً: تحليل الصناعة (بورتر) لفهم البيئة الخارجية، وتحليل الموارد والكفاءات (RBV) لفهم مصادر القوة الداخلية. النجاح الاستراتيجي يكمن في المطابقة الذكية بينهما.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== SECTION 5 — SUMMARY =================== -->
+    <div class="section-block" id="section-5">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">خلاصة المحور</h2>
+      </div>
+
+      <div class="summary-box">
+        <div class="summary-title">أبرز ما يجب استيعابه من المحور الأول</div>
+        <ul class="summary-points">
+          <li>كلمة "استراتيجية" ذات أصل يوناني عسكري (Strategos)، انتقل تدريجياً إلى عالم الأعمال في القرن العشرين.</li>
+          <li>لا يوجد تعريف موحّد للاستراتيجية، لكنها تجمع دائماً بين ثلاثة عناصر: الأهداف بعيدة المدى، تخصيص الموارد، والميزة التنافسية.</li>
+          <li>الاستراتيجية تتدرج في المؤسسة عبر ثلاثة مستويات: كلي (Corporate)، أعمال (Business)، وظيفي (Functional).</li>
+          <li>التطور التاريخي مرّ بأربع مراحل: التخطيط التشغيلي ← التخطيط الاستراتيجي ← الإدارة الاستراتيجية ← التعلم والرشاقة.</li>
+          <li>مدرسة بورتر تنطلق من الخارج (هيكل الصناعة) لتحديد الاستراتيجية، بينما مدرسة RBV تنطلق من الداخل (الموارد والكفاءات).</li>
+          <li>الفكر الاستراتيجي الحديث يجمع المقاربتين في نظرة تكاملية: تحليل بيئي + تقييم موارد + صياغة + تنفيذ + رقابة.</li>
+          <li>الاستراتيجية ليست "خطة سنوية" بل عملية مستمرة تتجدد في ضوء التغيرات البيئية ونتائج الأداء.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lesson Navigation -->
+    <div class="lesson-nav">
+      <a href="lesson-2.html" class="lesson-nav-btn">
+        المحور التالي: تحديد عناصر الاتجاه الإستراتيجي
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<!-- Footer -->
+<footer>
+  <span class="footer-brand">جامعة باتنة 1</span>
+  <ul class="footer-links">
+    <li><a href="../../../pages/about.html">عن المنصة</a></li>
+    <li><a href="../../../pages/contact.html">التواصل</a></li>
+  </ul>
+</footer>
 
 </body>
 </html>
