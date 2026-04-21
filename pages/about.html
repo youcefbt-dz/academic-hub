@@ -1,113 +1,175 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عن المادة — الإدارة الاستراتيجية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold-primary: #b48c36;
-            --slate-bg: #f8fafc;
-        }
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--slate-bg);
-            color: #1e293b;
-        }
-        .gold-text { color: var(--gold-primary); }
-        .gold-bg { background-color: var(--gold-primary); }
-        .gold-light-bg { background-color: #fcf9f2; }
-        
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عن المقياس — الإدارة الاستراتيجية</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a2744;
+    --navy-mid: #243259;
+    --gold: #9a7c3a;
+    --gold-light: #c4a35a;
+    --gold-pale: #f5efe0;
+    --cream: #faf8f4;
+    --ink: #1c1c1c;
+    --ink-mid: #4a4a4a;
+    --ink-light: #7a7a7a;
+    --rule: #d6cebb;
+    --white: #ffffff;
+  }
+  body { font-family: 'Cairo', sans-serif; background: var(--cream); color: var(--ink); direction: rtl; }
 
-        .content-card {
-            background: white;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-    </style>
+  .institution-bar { background: var(--navy); padding: 10px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold); }
+  .inst-name { font-family: 'Amiri', serif; color: #e8dfc8; font-size: 13px; line-height: 1.5; }
+  .inst-year { color: var(--gold-light); font-size: 11px; font-weight: 300; letter-spacing: 0.15em; margin-top: 2px; }
+  .emblem { width: 44px; height: 44px; border: 1.5px solid rgba(196,163,90,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+  nav { background: var(--white); border-bottom: 1px solid var(--rule); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+  .nav-brand { font-family: 'Amiri', serif; font-size: 17px; color: var(--navy); text-decoration: none; padding: 14px 0; display: inline-block; }
+  .nav-links { display: flex; list-style: none; }
+  .nav-links a { display: block; padding: 16px 18px; font-size: 11px; font-weight: 600; color: var(--ink-mid); text-decoration: none; letter-spacing: 0.08em; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+  .nav-links a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+  .nav-links a.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: 700; }
+
+  .page-header { background: var(--white); border-bottom: 1px solid var(--rule); padding: 48px 40px 36px; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--ink-light); margin-bottom: 20px; }
+  .breadcrumb span { color: var(--gold); }
+  .page-title-block { display: flex; align-items: flex-start; gap: 24px; }
+  .title-rule { width: 4px; height: 64px; background: var(--gold); flex-shrink: 0; margin-top: 4px; }
+  .page-title { font-family: 'Amiri', serif; font-size: 34px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 6px; }
+  .page-subtitle { font-size: 13px; color: var(--ink-mid); }
+
+  .content-area { max-width: 860px; margin: 0 auto; padding: 48px 40px 80px; }
+
+  .about-card { background: var(--white); border: 1px solid var(--rule); padding: 40px 48px; position: relative; overflow: hidden; }
+  .about-card::before { content: ''; position: absolute; top: 0; right: 0; width: 3px; height: 100%; background: var(--gold); }
+
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  .about-text { font-family: 'Amiri', serif; font-size: 19px; color: var(--ink-mid); line-height: 2; text-align: justify; }
+  .about-text strong { color: var(--navy); font-weight: 700; }
+
+  .ornament-divider { display: flex; align-items: center; gap: 12px; margin: 36px 0; }
+  .ornament-divider::before, .ornament-divider::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+  .ornament-center { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
+
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 4px; }
+  .feature-item { background: var(--cream); border: 1px solid var(--rule); padding: 24px 28px; }
+  .feature-num { font-size: 10px; font-weight: 700; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 8px; }
+  .feature-title { font-family: 'Amiri', serif; font-size: 17px; color: var(--navy); margin-bottom: 8px; }
+  .feature-text { font-size: 12px; color: var(--ink-light); line-height: 1.7; }
+
+  footer { background: var(--navy); border-top: 3px solid var(--gold); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Amiri', serif; color: #e8dfc8; font-size: 15px; }
+  .footer-links { display: flex; gap: 20px; list-style: none; }
+  .footer-links a { font-size: 11px; color: rgba(232,223,200,0.5); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  @media (max-width: 640px) {
+    .institution-bar, nav, .page-header, .content-area, footer { padding-left: 20px; padding-right: 20px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .page-title { font-size: 26px; }
+    .nav-links { display: none; }
+    .about-card { padding: 24px; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="glass-nav sticky top-0 z-50 border-b border-slate-100 py-4">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="../index.html" class="text-xl font-extrabold tracking-tight text-slate-800">
-                <span>إدارة <span class="gold-text">استراتيجية</span></span>
-            </a>
-            <ul class="hidden md:flex gap-8 text-[11px] font-extrabold text-slate-500 uppercase tracking-widest">
-                <li><a href="../index.html" class="hover:text-amber-600 transition-colors">الرئيسية</a></li>
-                <li><a href="about.html" class="gold-text">عن المقياس</a></li>
-                <li><a href="roadmap.html" class="hover:text-amber-600 transition-colors">خارطة الطريق</a></li>
-                <li><a href="contact.html" class="hover:text-amber-600 transition-colors">التواصل</a></li>
-            </ul>
-        </div>
-    </nav>
+<div class="institution-bar">
+  <div>
+    <div class="inst-name">جامعة باتنة 1 — كلية العلوم الاقتصادية والتجارية وعلوم التسيير</div>
+    <div class="inst-year">السنة الجامعية 2024 – 2025</div>
+  </div>
+  <div class="emblem">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <polygon points="13,2 24,8 24,18 13,24 2,18 2,8" stroke="#c4a35a" stroke-width="1.2" fill="none"/>
+      <circle cx="13" cy="13" r="4" stroke="#c4a35a" stroke-width="1" fill="none"/>
+      <line x1="13" y1="2" x2="13" y2="9" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="13" y1="17" x2="13" y2="24" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="2" y1="8" x2="8.5" y2="11.5" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="17.5" y1="14.5" x2="24" y2="18" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="24" y1="8" x2="17.5" y2="11.5" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="8.5" y1="14.5" x2="2" y2="18" stroke="#c4a35a" stroke-width="0.8"/>
+    </svg>
+  </div>
+</div>
 
-    <!-- Header Section -->
-    <header class="relative py-20 bg-white overflow-hidden border-b border-slate-50">
-        <div class="container relative z-10 mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gold-light-bg border border-amber-100 gold-text text-[11px] font-bold mb-6">
-                نبذة
-            </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-                عن هذا <span class="gold-text">الموقع</span>
-            </h1>
-            <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-                موقع مفتوح لزملاء السنة الثالثة إدارة مالية — يضم ملخصات مبسطة لمادة الإدارة الاستراتيجية.
-            </p>
-        </div>
-    </header>
+<nav>
+  <a href="../index.html" class="nav-brand">الإدارة الاستراتيجية</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">الرئيسية</a></li>
+    <li><a href="about.html" class="active">عن المقياس</a></li>
+    <li><a href="roadmap.html">خارطة الطريق</a></li>
+    <li><a href="contact.html">التواصل</a></li>
+  </ul>
+</nav>
 
-    <!-- Main Content -->
-    <main class="py-16 container mx-auto px-6 max-w-4xl">
-        <div class="content-card p-8 md:p-12 relative overflow-hidden">
-            <!-- Decorative Icon -->
-            <div class="absolute -top-10 -left-10 w-40 h-40 gold-light-bg rounded-full opacity-50"></div>
-            
-            <div class="relative z-10">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-1 bg-amber-500 rounded-full"></div>
-                    <h2 class="text-xl font-bold text-slate-800">رسالة الموقع</h2>
-                </div>
-                
-                <div class="text-slate-600 leading-loose text-lg text-justify">
-                    هذا الموقع أُعدّ بشكل شخصي لمساعدة الزملاء على مراجعة مادة 
-                    <strong class="text-slate-900 border-b-2 border-amber-200">الإدارة الاستراتيجية</strong> 
-                    بطريقة سهلة وسريعة. المحتوى مختصر ومنظم حسب المحاور الرسمية للمقياس المقررة لجامعة باتنة 1.
-                </div>
+<div class="page-header">
+  <div class="breadcrumb">
+    <span>الرئيسية</span>
+    <span>›</span>
+    عن المقياس
+  </div>
+  <div class="page-title-block">
+    <div class="title-rule"></div>
+    <div>
+      <h1 class="page-title">عن هذا الموقع</h1>
+      <p class="page-subtitle">نبذة عن المنصة والغرض منها</p>
+    </div>
+  </div>
+</div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
-                        <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full gold-bg"></span>
-                            محتوى موجه
-                        </h3>
-                        <p class="text-sm text-slate-500">تم التركيز على النقاط الجوهرية التي تهم الطالب في الامتحانات.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
-                        <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full gold-bg"></span>
-                            تصفح سريع
-                        </h3>
-                        <p class="text-sm text-slate-500">تصميم متوافق مع الهواتف والحواسيب للوصول للمعلومة في أي وقت.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+<div class="content-area">
 
-    <!-- Footer -->
-    <footer class="py-12 bg-white border-t border-slate-100 text-center">
-        <p class="text-slate-400 text-xs font-bold">بُني بمحبة لزملاء الدراسة — جامعة باتنة</p>
-    </footer>
+  <div class="about-card">
+    <div class="section-label">رسالة الموقع</div>
+    <p class="about-text">
+      هذا الموقع أُعدّ بشكل شخصي لمساعدة الزملاء على مراجعة مادة
+      <strong>الإدارة الاستراتيجية</strong>
+      بطريقة سهلة وسريعة. المحتوى مختصر ومنظم حسب المحاور الرسمية للمقياس المقررة لجامعة باتنة 1، موجّه بشكل خاص لطلبة السنة الثالثة تخصص مالية ومحاسبة.
+    </p>
+
+    <div class="ornament-divider"><div class="ornament-center"></div></div>
+
+    <div class="section-label">مميزات المنصة</div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-num">01</div>
+        <div class="feature-title">محتوى موجّه</div>
+        <p class="feature-text">تم التركيز على النقاط الجوهرية التي تهم الطالب في الامتحانات، مع تجنب التفاصيل الزائدة.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">02</div>
+        <div class="feature-title">تصفح سريع</div>
+        <p class="feature-text">تصميم متوافق مع الهواتف والحواسيب للوصول إلى المعلومة في أي وقت ومن أي مكان.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">03</div>
+        <div class="feature-title">منظم حسب المحاور</div>
+        <p class="feature-text">يتبع الموقع التسلسل الرسمي للمحاور كما هي مقررة من قِبل الأستاذ في الجامعة.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">04</div>
+        <div class="feature-title">مفتوح للجميع</div>
+        <p class="feature-text">لا يتطلب الموقع تسجيلاً أو حساباً، متاح بالكامل ومجاناً لجميع الطلبة.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-brand">جامعة باتنة 1</span>
+  <ul class="footer-links">
+    <li><a href="#">سياسة الخصوصية</a></li>
+    <li><a href="about.html">عن المنصة</a></li>
+  </ul>
+</footer>
 
 </body>
 </html>
