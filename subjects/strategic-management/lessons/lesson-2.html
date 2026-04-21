@@ -1,194 +1,895 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المحور الثاني: تحديد عناصر الاتجاه الإستراتيجي</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold-primary: #b48c36;
-            --slate-bg: #f8fafc;
-        }
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--slate-bg);
-            color: #1e293b;
-        }
-        .gold-text { color: var(--gold-primary); }
-        .gold-bg { background-color: var(--gold-primary); }
-        
-        .content-card {
-            background: white;
-            border-radius: 1.5rem;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .sticky-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e2e8f0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحور الثاني: تحديد عناصر الاتجاه الإستراتيجي — جامعة باتنة 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a2744;
+    --navy-mid: #243259;
+    --gold: #9a7c3a;
+    --gold-light: #c4a35a;
+    --gold-pale: #f5efe0;
+    --cream: #faf8f4;
+    --ink: #1c1c1c;
+    --ink-mid: #4a4a4a;
+    --ink-light: #7a7a7a;
+    --rule: #d6cebb;
+    --white: #ffffff;
+    --green: #2d6a4f;
+    --green-pale: #f0faf5;
+  }
 
-        .section-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-        }
+  body { font-family: 'Cairo', sans-serif; background: var(--cream); color: var(--ink); direction: rtl; line-height: 1.8; }
 
-        .progress-bar {
-            height: 4px;
-            background: #f1f5f9;
-            border-radius: 2px;
-            margin-top: 8px;
-        }
-        .progress-fill {
-            height: 100%;
-            background: var(--gold-primary);
-            border-radius: 2px;
-        }
-    </style>
+  /* ===== INSTITUTION BAR ===== */
+  .institution-bar { background: var(--navy); padding: 10px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold); }
+  .inst-name { font-family: 'Amiri', serif; color: #e8dfc8; font-size: 13px; line-height: 1.5; }
+  .inst-year { color: var(--gold-light); font-size: 11px; font-weight: 300; letter-spacing: 0.15em; margin-top: 2px; }
+  .emblem { width: 44px; height: 44px; border: 1.5px solid rgba(196,163,90,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+  /* ===== NAV ===== */
+  nav { background: var(--white); border-bottom: 1px solid var(--rule); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+  .nav-brand { font-family: 'Amiri', serif; font-size: 17px; color: var(--navy); text-decoration: none; padding: 14px 0; }
+  .nav-back { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: var(--ink-mid); text-decoration: none; letter-spacing: 0.06em; padding: 14px 0; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+  .nav-back:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .nav-back svg { width: 14px; height: 14px; }
+
+  /* ===== PAGE HEADER ===== */
+  .page-header { background: var(--white); border-bottom: 1px solid var(--rule); padding: 48px 40px 36px; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--ink-light); margin-bottom: 20px; }
+  .breadcrumb a { color: var(--ink-light); text-decoration: none; } .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb span { color: var(--gold); }
+  .page-title-block { display: flex; align-items: flex-start; gap: 24px; }
+  .title-rule { width: 4px; min-height: 80px; background: var(--gold); flex-shrink: 0; margin-top: 4px; }
+  .lesson-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .page-title { font-family: 'Amiri', serif; font-size: 34px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 8px; }
+  .page-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.8; max-width: 680px; }
+  .meta-tags { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+  .meta-tag { padding: 4px 12px; background: var(--gold-pale); border: 1px solid rgba(154,124,58,0.2); font-size: 10.5px; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; }
+
+  /* ===== LAYOUT ===== */
+  .page-layout { display: grid; grid-template-columns: 220px 1fr; gap: 0; max-width: 1100px; margin: 0 auto; }
+
+  /* ===== SIDEBAR TOC ===== */
+  .toc-sidebar { padding: 40px 0 40px 24px; border-left: 1px solid var(--rule); position: sticky; top: 57px; height: calc(100vh - 57px); overflow-y: auto; }
+  .toc-title { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; padding-right: 16px; }
+  .toc-list { list-style: none; }
+  .toc-list li a { display: block; padding: 7px 16px; font-size: 12px; color: var(--ink-light); text-decoration: none; border-right: 2px solid transparent; transition: all 0.2s; line-height: 1.4; }
+  .toc-list li a:hover { color: var(--navy); border-right-color: var(--gold); background: var(--gold-pale); }
+  .toc-list li a.active { color: var(--navy); border-right-color: var(--gold); font-weight: 700; }
+  .toc-list .toc-sub a { padding-right: 28px; font-size: 11px; }
+
+  /* ===== CONTENT ===== */
+  .lesson-content { padding: 48px 40px 80px; border-right: 1px solid var(--rule); }
+
+  .section-block { margin-bottom: 56px; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; padding-bottom: 14px; border-bottom: 2px solid var(--navy); }
+  .section-num { font-family: 'Cairo', sans-serif; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 0.15em; flex-shrink: 0; }
+  .section-title { font-family: 'Amiri', serif; font-size: 24px; color: var(--navy); }
+
+  .subsection { margin-bottom: 36px; }
+  .subsection-title { font-family: 'Amiri', serif; font-size: 19px; color: var(--navy); margin-bottom: 14px; padding-right: 12px; border-right: 3px solid var(--gold); }
+
+  .body-text { font-size: 14.5px; color: var(--ink-mid); line-height: 2; margin-bottom: 16px; text-align: justify; }
+  .body-text strong { color: var(--navy); font-weight: 700; }
+
+  .def-box { background: var(--white); border: 1px solid var(--rule); border-right: 4px solid var(--gold); padding: 22px 28px; margin: 20px 0; }
+  .def-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .def-text { font-family: 'Amiri', serif; font-size: 17px; color: var(--navy); line-height: 1.8; }
+
+  .quote-box { background: var(--navy); padding: 24px 32px; margin: 24px 0; position: relative; }
+  .quote-box::before { content: '"'; position: absolute; top: -10px; right: 20px; font-family: 'Amiri', serif; font-size: 80px; color: var(--gold); opacity: 0.3; line-height: 1; }
+  .quote-text { font-family: 'Amiri', serif; font-size: 17px; color: #e8dfc8; line-height: 1.8; position: relative; z-index: 1; }
+  .quote-source { font-size: 11px; color: var(--gold-light); margin-top: 10px; letter-spacing: 0.08em; }
+
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin: 20px 0; }
+  .info-cell { background: var(--white); border: 1px solid var(--rule); padding: 20px 22px; }
+  .info-cell-label { font-size: 10px; font-weight: 700; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .info-cell-text { font-size: 13.5px; color: var(--ink-mid); line-height: 1.8; }
+  .info-cell-text strong { color: var(--navy); }
+
+  /* Pyramid visual */
+  .pyramid-wrap { display: flex; justify-content: center; margin: 28px 0; }
+  .pyramid { display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; max-width: 560px; }
+  .pyramid-level { display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; font-family: 'Amiri', serif; transition: filter 0.2s; cursor: default; position: relative; }
+  .pyramid-level:hover { filter: brightness(1.1); }
+  .pyramid-level-inner { padding: 14px 20px; width: 100%; }
+  .pyr-label { font-size: 16px; font-weight: 700; }
+  .pyr-sub { font-size: 11px; opacity: 0.85; margin-top: 4px; font-family: 'Cairo', sans-serif; font-weight: 300; }
+  .pyr-1 { background: var(--navy); clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); width: 34%; min-height: 70px; }
+  .pyr-2 { background: #2a3f72; clip-path: polygon(14% 0%, 86% 0%, 100% 100%, 0% 100%); width: 56%; min-height: 70px; margin-top: -1px; }
+  .pyr-3 { background: var(--gold); clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%); width: 78%; min-height: 70px; margin-top: -1px; }
+  .pyr-4 { background: #b8922a; clip-path: polygon(3% 0%, 97% 0%, 100% 100%, 0% 100%); width: 100%; min-height: 70px; margin-top: -1px; }
+  .pyramid-legend { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 18px; }
+  .pyr-legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-mid); }
+  .pyr-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+
+  /* Element cards */
+  .element-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .element-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--gold); padding: 24px 22px; }
+  .element-card.green-top { border-top-color: var(--green); }
+  .element-card.navy-top { border-top-color: var(--navy); }
+  .element-card.amber-top { border-top-color: #c07c20; }
+  .element-card-icon { font-size: 26px; margin-bottom: 10px; }
+  .element-card-title { font-family: 'Amiri', serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+  .element-card-body { font-size: 13px; color: var(--ink-mid); line-height: 1.9; }
+  .element-card-body strong { color: var(--navy); }
+
+  /* Comparison table */
+  .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+  .compare-table th { background: var(--navy); color: #e8dfc8; padding: 12px 16px; text-align: right; font-weight: 600; font-size: 12px; letter-spacing: 0.05em; }
+  .compare-table td { padding: 12px 16px; border: 1px solid var(--rule); color: var(--ink-mid); vertical-align: top; line-height: 1.7; background: var(--white); }
+  .compare-table tr:nth-child(even) td { background: var(--cream); }
+  .compare-table td:first-child { font-weight: 700; color: var(--navy); background: var(--gold-pale); border-right: 3px solid var(--gold); }
+
+  /* Note box */
+  .note-box { background: var(--gold-pale); border: 1px solid rgba(154,124,58,0.25); padding: 18px 22px; margin: 20px 0; display: flex; gap: 14px; align-items: flex-start; }
+  .note-icon { flex-shrink: 0; color: var(--gold); margin-top: 2px; }
+  .note-icon svg { width: 18px; height: 18px; }
+  .note-text { font-size: 13px; color: var(--ink-mid); line-height: 1.8; }
+  .note-text strong { color: var(--navy); }
+
+  /* Green note */
+  .note-box.green { background: var(--green-pale); border-color: rgba(45,106,79,0.25); }
+  .note-box.green .note-icon { color: var(--green); }
+
+  /* Vision-Mission visual */
+  .vm-diagram { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: stretch; margin: 28px 0; }
+  .vm-box { background: var(--white); border: 1px solid var(--rule); padding: 24px 22px; }
+  .vm-box.vision { border-top: 4px solid var(--navy); }
+  .vm-box.mission { border-top: 4px solid var(--gold); }
+  .vm-box-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; margin-bottom: 10px; text-transform: uppercase; }
+  .vm-box.vision .vm-box-tag { color: var(--navy); }
+  .vm-box.mission .vm-box-tag { color: var(--gold); }
+  .vm-box-title { font-family: 'Amiri', serif; font-size: 20px; color: var(--navy); margin-bottom: 10px; }
+  .vm-box-text { font-size: 13px; color: var(--ink-mid); line-height: 1.9; }
+  .vm-box-text ul { padding-right: 14px; margin-top: 8px; list-style: none; }
+  .vm-box-text ul li { padding-right: 12px; position: relative; margin-bottom: 6px; }
+  .vm-box-text ul li::before { content: '—'; position: absolute; right: 0; color: var(--gold); font-size: 12px; }
+  .vm-arrow { display: flex; align-items: center; justify-content: center; padding: 0 12px; background: var(--cream); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .vm-arrow svg { width: 22px; height: 22px; color: var(--gold); }
+
+  /* Values list */
+  .values-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin: 20px 0; }
+  .value-item { background: var(--white); border: 1px solid var(--rule); padding: 18px 16px; text-align: center; }
+  .value-item-icon { font-size: 22px; margin-bottom: 8px; }
+  .value-item-name { font-family: 'Amiri', serif; font-size: 16px; color: var(--navy); margin-bottom: 6px; }
+  .value-item-desc { font-size: 12px; color: var(--ink-light); line-height: 1.7; }
+
+  /* Objectives diagram */
+  .smart-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin: 20px 0; }
+  .smart-cell { background: var(--navy); padding: 20px 14px; text-align: center; }
+  .smart-cell:nth-child(2) { background: var(--navy-mid); }
+  .smart-cell:nth-child(3) { background: #2d4080; }
+  .smart-cell:nth-child(4) { background: #354b96; }
+  .smart-cell:nth-child(5) { background: #3c56aa; }
+  .smart-letter { font-family: 'Cairo', sans-serif; font-size: 28px; font-weight: 700; color: var(--gold-light); margin-bottom: 8px; }
+  .smart-word { font-family: 'Amiri', serif; font-size: 14px; color: #e8dfc8; margin-bottom: 6px; }
+  .smart-desc { font-size: 10.5px; color: rgba(232,223,200,0.7); line-height: 1.6; }
+
+  /* Levels diagram */
+  .levels-flow { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+  .level-row { display: grid; grid-template-columns: 180px 1fr; gap: 0; }
+  .level-label { background: var(--navy); padding: 18px 20px; display: flex; align-items: center; justify-content: flex-end; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .level-label span { font-family: 'Amiri', serif; font-size: 15px; color: #e8dfc8; text-align: left; }
+  .level-content { background: var(--white); border: 1px solid var(--rule); border-right: none; padding: 18px 22px; display: flex; align-items: center; gap: 12px; }
+  .level-content-inner { font-size: 13px; color: var(--ink-mid); line-height: 1.8; }
+  .level-content-inner strong { color: var(--navy); }
+  .level-badge { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; }
+  .badge-gold { background: var(--gold); }
+  .badge-navy { background: var(--navy-mid); }
+  .badge-green { background: var(--green); }
+
+  /* Summary box */
+  .summary-box { background: var(--navy); padding: 36px 40px; margin: 40px 0 0; }
+  .summary-title { font-family: 'Amiri', serif; font-size: 20px; color: var(--gold-light); margin-bottom: 16px; }
+  .summary-points { list-style: none; }
+  .summary-points li { font-size: 13.5px; color: #c8c0b0; line-height: 1.9; padding-right: 20px; position: relative; margin-bottom: 8px; }
+  .summary-points li::before { content: '✦'; position: absolute; right: 0; color: var(--gold); font-size: 10px; top: 5px; }
+
+  /* Nav between lessons */
+  .lesson-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .lesson-nav-btn { display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: var(--white); border: 1px solid var(--rule); text-decoration: none; color: var(--ink-mid); font-size: 12px; font-weight: 600; transition: all 0.2s; }
+  .lesson-nav-btn:hover { border-color: var(--gold); color: var(--navy); }
+  .lesson-nav-btn svg { width: 14px; height: 14px; }
+
+  /* Divider */
+  .section-divider { border: none; border-top: 1px solid var(--rule); margin: 32px 0; }
+
+  footer { background: var(--navy); border-top: 3px solid var(--gold); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Amiri', serif; color: #e8dfc8; font-size: 15px; }
+  .footer-links { display: flex; gap: 20px; list-style: none; }
+  .footer-links a { font-size: 11px; color: rgba(232,223,200,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  @media (max-width: 768px) {
+    .institution-bar, nav, .page-header, .lesson-content, footer { padding-left: 20px; padding-right: 20px; }
+    .page-layout { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+    .page-title { font-size: 26px; }
+    .info-grid, .element-cards, .values-grid, .smart-grid { grid-template-columns: 1fr; }
+    .vm-diagram { grid-template-columns: 1fr; }
+    .vm-arrow { display: none; }
+    .pyr-1 { width: 50%; }
+    .pyr-2 { width: 70%; }
+    .pyr-3 { width: 86%; }
+    .pyr-4 { width: 100%; }
+    .level-row { grid-template-columns: 130px 1fr; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="sticky-nav sticky top-0 z-50 py-4">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="../../../index.html" class="flex items-center gap-2 text-slate-800 font-bold hover:gold-text transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                العودة للرئيسية
-            </a>
-            <div class="text-[10px] font-black text-slate-400 bg-slate-100 px-3 py-1 rounded-full uppercase tracking-widest">
-                المحور الثاني
+<!-- Institution Bar -->
+<div class="institution-bar">
+  <div>
+    <div class="inst-name">جامعة باتنة 1 — كلية العلوم الاقتصادية والتجارية وعلوم التسيير</div>
+    <div class="inst-year">السنة الجامعية 2024 – 2025</div>
+  </div>
+  <div class="emblem">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <polygon points="13,2 24,8 24,18 13,24 2,18 2,8" stroke="#c4a35a" stroke-width="1.2" fill="none"/>
+      <circle cx="13" cy="13" r="4" stroke="#c4a35a" stroke-width="1" fill="none"/>
+      <line x1="13" y1="2" x2="13" y2="9" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="13" y1="17" x2="13" y2="24" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="2" y1="8" x2="8.5" y2="11.5" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="17.5" y1="14.5" x2="24" y2="18" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="24" y1="8" x2="17.5" y2="11.5" stroke="#c4a35a" stroke-width="0.8"/>
+      <line x1="8.5" y1="14.5" x2="2" y2="18" stroke="#c4a35a" stroke-width="0.8"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="../../../index.html" class="nav-brand">الإدارة الاستراتيجية</a>
+  <a href="../../../index.html" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7 7-7"/></svg>
+    العودة إلى القائمة
+  </a>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="../../../index.html">الرئيسية</a>
+    <span>›</span>
+    <a href="../../../index.html">الإدارة الاستراتيجية</a>
+    <span>›</span>
+    المحور الثاني
+  </div>
+  <div class="page-title-block">
+    <div class="title-rule"></div>
+    <div>
+      <div class="lesson-tag">المحور الدراسي الثاني</div>
+      <h1 class="page-title">تحديد عناصر الاتجاه الإستراتيجي</h1>
+      <p class="page-desc">رسم خارطة الطريق للمؤسسة — من الرؤية الطموحة إلى الرسالة الواضحة والقيم الراسخة والأهداف القابلة للقياس — وكيف تتكامل هذه العناصر لتشكّل هويةً استراتيجية متماسكة.</p>
+      <div class="meta-tags">
+        <span class="meta-tag">إدارة استراتيجية</span>
+        <span class="meta-tag">السنة الثالثة</span>
+        <span class="meta-tag">الفصل الثاني</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Layout -->
+<div class="page-layout">
+
+  <!-- TOC Sidebar -->
+  <aside class="toc-sidebar">
+    <div class="toc-title">محتويات المحور</div>
+    <ul class="toc-list">
+      <li><a href="#section-0">مدخل — ماذا نعني بالاتجاه الإستراتيجي؟</a></li>
+      <li><a href="#section-1">أولاً — الرؤية الاستراتيجية</a></li>
+      <li class="toc-sub"><a href="#s1-tarif">تعريف الرؤية</a></li>
+      <li class="toc-sub"><a href="#s1-khasal">خصائص الرؤية الجيدة</a></li>
+      <li class="toc-sub"><a href="#s1-amthila">أمثلة من الواقع</a></li>
+      <li><a href="#section-2">ثانياً — الرسالة</a></li>
+      <li class="toc-sub"><a href="#s2-tarif">تعريف الرسالة</a></li>
+      <li class="toc-sub"><a href="#s2-mukawinat">مكوّنات الرسالة</a></li>
+      <li class="toc-sub"><a href="#s2-farq">الفرق بين الرؤية والرسالة</a></li>
+      <li><a href="#section-3">ثالثاً — القيم المؤسسية</a></li>
+      <li class="toc-sub"><a href="#s3-tarif">مفهوم القيم</a></li>
+      <li class="toc-sub"><a href="#s3-anwaa">أنواع القيم</a></li>
+      <li><a href="#section-4">رابعاً — الأهداف الاستراتيجية</a></li>
+      <li class="toc-sub"><a href="#s4-tarif">تعريف الأهداف</a></li>
+      <li class="toc-sub"><a href="#s4-smart">معيار SMART</a></li>
+      <li class="toc-sub"><a href="#s4-mustawayat">مستويات الأهداف</a></li>
+      <li><a href="#section-5">خامساً — التكامل بين العناصر</a></li>
+      <li><a href="#section-6">سادساً — الخلاصة</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="lesson-content">
+
+    <!-- =================== INTRO =================== -->
+    <div class="section-block" id="section-0">
+      <div class="section-header">
+        <span class="section-num">مدخل</span>
+        <h2 class="section-title">ماذا نعني بالاتجاه الإستراتيجي؟</h2>
+      </div>
+
+      <p class="body-text">
+        إذا كانت الإدارة الاستراتيجية هي العلم الذي يُرشد المؤسسة نحو مستقبلها، فإن <strong>الاتجاه الاستراتيجي</strong> هو البوصلة التي تُحدد جهة ذلك المستقبل. قبل أن تُقرر المؤسسة <em>كيف</em> تنافس وأين تضع مواردها، يجب أن تُجيب عن سؤال أعمق وأكثر جوهرية: <strong>لماذا توجد؟ وإلى أين تسير؟</strong>
+      </p>
+
+      <p class="body-text">
+        تتشكّل الإجابة عن هذين السؤالين من خلال أربعة عناصر مترابطة تُؤلف معاً ما يُعرف بـ<strong>الاتجاه الاستراتيجي للمؤسسة</strong>:
+      </p>
+
+      <!-- Pyramid -->
+      <div class="pyramid-wrap">
+        <div>
+          <div class="pyramid">
+            <div class="pyramid-level pyr-1">
+              <div class="pyramid-level-inner">
+                <div class="pyr-label">الرؤية</div>
+                <div class="pyr-sub">إلى أين نريد الوصول؟</div>
+              </div>
             </div>
+            <div class="pyramid-level pyr-2">
+              <div class="pyramid-level-inner">
+                <div class="pyr-label">الرسالة</div>
+                <div class="pyr-sub">لماذا نوجد؟ وماذا نقدم؟</div>
+              </div>
+            </div>
+            <div class="pyramid-level pyr-3">
+              <div class="pyramid-level-inner">
+                <div class="pyr-label">القيم</div>
+                <div class="pyr-sub">ما الذي يُوجّه سلوكنا وقراراتنا؟</div>
+              </div>
+            </div>
+            <div class="pyramid-level pyr-4">
+              <div class="pyramid-level-inner">
+                <div class="pyr-label">الأهداف الاستراتيجية</div>
+                <div class="pyr-sub">ما الذي يجب تحقيقه بشكل ملموس وقابل للقياس؟</div>
+              </div>
+            </div>
+          </div>
+          <div class="pyramid-legend">
+            <div class="pyr-legend-item"><div class="pyr-dot" style="background:var(--navy)"></div> الرؤية — القمة الطموحة</div>
+            <div class="pyr-legend-item"><div class="pyr-dot" style="background:#2a3f72"></div> الرسالة — الهوية</div>
+            <div class="pyr-legend-item"><div class="pyr-dot" style="background:var(--gold)"></div> القيم — الأخلاق والثقافة</div>
+            <div class="pyr-legend-item"><div class="pyr-dot" style="background:#b8922a"></div> الأهداف — التنفيذ والنتائج</div>
+          </div>
         </div>
-    </nav>
+      </div>
 
-    <!-- Hero Header -->
-    <header class="py-16 bg-white border-b border-slate-100 relative overflow-hidden">
-        <div class="container mx-auto px-6 max-w-4xl relative z-10 text-center md:text-right">
-            <div class="inline-block px-4 py-1.5 rounded-full gold-bg text-white text-[11px] font-bold mb-6">
-                مرحلة التخطيط والتموضع
-            </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
-                تحديد عناصر <span class="gold-text">الاتجاه الإستراتيجي</span>
-            </h1>
-            <p class="text-slate-500 leading-relaxed text-lg md:text-xl max-w-2xl">
-                بناء بوصلة المؤسسة من خلال صياغة الرؤية، الرسالة، القيم والأهداف الإستراتيجية التي تضمن استمرارية النجاح.
-            </p>
-        </div>
-        <!-- Decorative background elements -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-amber-50 rounded-full blur-3xl opacity-50 -mr-20 -mt-20"></div>
-    </header>
+      <p class="body-text">
+        تُمثل هذه العناصر الأربعة هرماً متكاملاً: الرؤية في القمة تُلهم الرسالة التي تنبثق منها القيم والأهداف في القاعدة. غيابُ أي عنصر يُخلّ بتوازن المنظومة كلها ويُفقدها اتساقها الداخلي.
+      </p>
+    </div>
 
-    <main class="py-16 container mx-auto px-6 max-w-4xl">
-        
-        <!-- 1. Strategic Vision -->
-        <section class="mb-12">
-            <div class="content-card p-8 hover:shadow-xl transition-shadow">
-                <div class="section-icon bg-amber-50 text-amber-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                </div>
-                <h2 class="text-2xl font-extrabold text-slate-900 mb-4">أولاً: الرؤية الإستراتيجية (Strategic Vision)</h2>
-                <div class="bg-amber-50/50 rounded-2xl p-6 border-r-4 border-amber-500 mb-8">
-                    <p class="text-slate-700 leading-relaxed text-lg">
-                        تُمثل "الحلم" أو "الصورة الذهنية" التي تطمح المؤسسة للوصول إليها خلال (5-10) سنوات القادمة. تجيب على السؤال: <span class="font-bold gold-text">ماذا نريد أن نصبح؟</span>
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
-                        <h4 class="font-bold mb-2 flex items-center gap-2">🎯 التركيز</h4>
-                        <p class="text-sm text-slate-600">تركز على المستقبل البعيد وتضع الوجهة العامة للمنظمة.</p>
-                    </div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
-                        <h4 class="font-bold mb-2 flex items-center gap-2">✨ الإلهام</h4>
-                        <p class="text-sm text-slate-600">يجب أن تكون محفزة للموظفين وتخلق شعوراً بالهدف المشترك.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- =================== SECTION 1 — VISION =================== -->
+    <div class="section-block" id="section-1">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">الرؤية الاستراتيجية</h2>
+      </div>
 
-        <!-- 2. Strategic Mission -->
-        <section class="mb-12">
-            <div class="content-card p-8 hover:shadow-xl transition-shadow border-blue-100">
-                <div class="section-icon bg-blue-50 text-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a" />
-                    </svg>
-                </div>
-                <h2 class="text-2xl font-extrabold text-slate-900 mb-4">ثانياً: الرسالة (Mission)</h2>
-                <p class="text-slate-600 mb-6">الرسالة هي دستور العمل اليومي؛ فهي تحدد طبيعة العمل، العملاء، والأسواق. تجيب على السؤال: <span class="font-bold text-blue-600">لماذا نحن موجودون الآن؟</span></p>
-                
-                <div class="space-y-4">
-                    <h4 class="font-bold text-slate-800">مكونات الرسالة الفعالة:</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">تحديد العملاء</span>
-                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">المنتجات/الخدمات</span>
-                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">النطاق الجغرافي</span>
-                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">التكنولوجيا</span>
-                        <span class="px-4 py-2 bg-white border border-blue-200 rounded-full text-xs font-bold text-blue-700 shadow-sm">الفلسفة والقيم</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="subsection" id="s1-tarif">
+        <h3 class="subsection-title">تعريف الرؤية</h3>
+        <p class="body-text">
+          الرؤية هي <strong>الصورة المستقبلية الطموحة</strong> التي تطمح المؤسسة إلى تحقيقها على المدى البعيد. إنها تُجيب عن السؤال: <em>"كيف تريد المؤسسة أن تبدو بعد عشر أو عشرين سنة من الآن؟"</em> وهي ليست توقعاً لما سيحدث، بل التزام بما تريد المؤسسة أن تُصبح عليه.
+        </p>
 
-        <!-- 3. Values & Goals -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <!-- Values -->
-            <div class="content-card p-8 bg-slate-900 text-white">
-                <div class="section-icon bg-white/10 text-amber-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">القيم (Values)</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    هي المبادئ الأخلاقية والقواعد السلوكية التي تحكم تعاملات المؤسسة مع الموظفين والعملاء والمجتمع (مثل: النزاهة، الشفافية، الابتكار).
-                </p>
-            </div>
-
-            <!-- Goals -->
-            <div class="content-card p-8 border-amber-200">
-                <div class="section-icon bg-amber-50 text-amber-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">الأهداف (Goals)</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">
-                    تحويل الرسالة إلى مستهدفات محددة. يجب أن تكون أهدافاً <span class="font-bold gold-text">SMART</span> (محددة، قابلة للقياس، قابلة للتحقيق، واقعية، ومقيدة بزمن).
-                </p>
-            </div>
+        <div class="def-box">
+          <div class="def-label">تعريف — جيمس كولينز وجيري بوراس (1996)</div>
+          <p class="def-text">الرؤية الاستراتيجية هي صورة حيّة وجذّابة لحالة مستقبلية طموحة تُلهم أفراد المنظمة وتُوحّد جهودهم، وتُمثّل قفزة نوعية عبر الوقت تتجاوز ما هو ممكن في الوقت الراهن.</p>
         </div>
 
-        <!-- Summary & Call to action -->
-        <div class="p-8 rounded-[2rem] bg-gradient-to-br from-amber-500 to-amber-700 text-white text-center">
-            <h4 class="text-xl font-bold mb-4">اختبر معلوماتك في هذا المحور</h4>
-            <p class="text-amber-100 text-sm mb-8 max-w-md mx-auto">هل يمكنك التفريق بوضوح بين الرؤية والرسالة في مؤسستك الحالية؟</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="bg-white text-amber-700 px-8 py-3 rounded-2xl font-bold hover:bg-slate-100 transition-all">تحميل ملخص المحور PDF</button>
-                <a href="lesson-3.html" class="bg-amber-800/30 backdrop-blur-sm border border-white/20 px-8 py-3 rounded-2xl font-bold hover:bg-amber-800/50 transition-all">المحور التالي: التحليل البيئي</a>
-            </div>
+        <div class="def-box">
+          <div class="def-label">تعريف — بيتر دراكر</div>
+          <p class="def-text">الرؤية هي القدرة على رؤية ما لا يُرى بعد، وتحويل هذا الخيال إلى التزام يشكّل قرارات اليوم.</p>
+        </div>
+      </div>
+
+      <div class="subsection" id="s1-khasal">
+        <h3 class="subsection-title">خصائص الرؤية الاستراتيجية الفعّالة</h3>
+        <p class="body-text">ليس كل بيان مكتوب يرقى إلى مستوى الرؤية الاستراتيجية الحقيقية. الرؤية الفعّالة تتسم بجملة من الخصائص الجوهرية:</p>
+
+        <div class="element-cards">
+          <div class="element-card">
+            <div class="element-card-icon">🎯</div>
+            <div class="element-card-title">الوضوح والتركيز</div>
+            <div class="element-card-body">تُصاغ بلغة واضحة ومباشرة بعيداً عن الغموض والعموميات. يجب أن يفهمها موظف الخط الأول بنفس السهولة التي يفهمها بها عضو مجلس الإدارة.</div>
+          </div>
+          <div class="element-card green-top">
+            <div class="element-card-icon">🌅</div>
+            <div class="element-card-title">الطموح والإلهام</div>
+            <div class="element-card-body">تُمثّل هدفاً يتجاوز الواقع الراهن وقدراً من <strong>التحدي الشريف</strong>، يُلهم الأفراد ويدفعهم نحو بذل جهد استثنائي. الرؤية الاعتيادية لا تُحرّك الجموع.</div>
+          </div>
+          <div class="element-card navy-top">
+            <div class="element-card-icon">⏳</div>
+            <div class="element-card-title">المدى الزمني البعيد</div>
+            <div class="element-card-body">تمتد في الغالب من <strong>خمس إلى عشرين سنة</strong> أو أكثر. هي بوصلة المستقبل لا خطة العام القادم، وتظل ذات صلة حتى بعد تغيّر القيادة والبيئة التنافسية.</div>
+          </div>
+          <div class="element-card amber-top">
+            <div class="element-card-icon">🧭</div>
+            <div class="element-card-title">الاتساق والتفرّد</div>
+            <div class="element-card-body">تنسجم مع قيم المؤسسة ورسالتها، وتعكس خصوصيتها وهويتها الفريدة. الرؤية الجيدة لا يمكن نقلها كما هي إلى مؤسسة أخرى.</div>
+          </div>
         </div>
 
-    </main>
+        <div class="note-box">
+          <div class="note-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg></div>
+          <p class="note-text"><strong>تحذير من المبالغة والتضخيم:</strong> الرؤية البالغة في الغموض مثل <em>"أن نكون الأفضل في العالم"</em> لا تُوجّه القرارات ولا تُلهم الأفراد. كما أن الرؤية الواقعية جداً لا تمتلك قوة الجذب اللازمة. الرؤية الفعّالة تقع في المنطقة الإبداعية بين الممكن والطموح.</p>
+        </div>
+      </div>
 
-    <footer class="py-12 text-center border-t border-slate-100">
-        <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">مقياس الإدارة الاستراتيجية - جامعة باتنة 1</p>
-    </footer>
+      <div class="subsection" id="s1-amthila">
+        <h3 class="subsection-title">أمثلة تطبيقية من الشركات الكبرى</h3>
+        <p class="body-text">تُعطينا الشركات العالمية الكبرى نماذج حية لفهم ما تعنيه الرؤية الاستراتيجية في الممارسة الفعلية:</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>المؤسسة</th>
+              <th>الرؤية الاستراتيجية</th>
+              <th>السمة المميزة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>مايكروسوفت (1980)</td>
+              <td>وضع حاسوب شخصي على كل مكتب وفي كل منزل.</td>
+              <td>محددة جغرافياً وبشرياً — صوّرت مستقبلاً ملموساً</td>
+            </tr>
+            <tr>
+              <td>ديزني</td>
+              <td>إسعاد الناس.</td>
+              <td>بسيطة ومُلهِمة — توحّد كل أنشطة المؤسسة</td>
+            </tr>
+            <tr>
+              <td>أمازون</td>
+              <td>أن تكون الشركة الأكثر تمحوراً حول العميل في العالم.</td>
+              <td>موجِّهة للقرار — أي عمل لا يخدم العميل لا يتناسب مع الرؤية</td>
+            </tr>
+            <tr>
+              <td>تيسلا</td>
+              <td>تسريع التحول العالمي نحو الطاقة المستدامة.</td>
+              <td>ذات بُعد اجتماعي — تتجاوز حدود المؤسسة</td>
+            </tr>
+            <tr>
+              <td>IKEA</td>
+              <td>خلق حياة يومية أفضل للناس.</td>
+              <td>إنسانية ومتجذّرة في القيمة المقدَّمة للمجتمع</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="quote-box">
+          <p class="quote-text">الرؤية بدون تنفيذ مجرد هلوسة، والتنفيذ بدون رؤية جري في الظلام.</p>
+          <div class="quote-source">— توماس إديسون (مقولة مأثورة في الإدارة الاستراتيجية)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== SECTION 2 — MISSION =================== -->
+    <div class="section-block" id="section-2">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">الرسالة (Mission)</h2>
+      </div>
+
+      <div class="subsection" id="s2-tarif">
+        <h3 class="subsection-title">تعريف الرسالة</h3>
+        <p class="body-text">
+          إذا كانت الرؤية تُجيب عن سؤال <strong>"إلى أين نريد الوصول؟"</strong>، فإن الرسالة تُجيب عن سؤال أكثر جوهرية: <strong>"لماذا نوجد؟"</strong> الرسالة هي <em>هوية المؤسسة</em> وسبب وجودها في الحاضر، وهي التي تمنح الأنشطة اليومية معناها وأثرها.
+        </p>
+
+        <div class="def-box">
+          <div class="def-label">تعريف — بيتر دراكر</div>
+          <p class="def-text">رسالة المؤسسة هي التعريف الدقيق لطبيعة عمل المنظمة وسبب وجودها، والغرض الذي تسعى إلى تحقيقه. وهي تُحدد من هو زبون المؤسسة، وما الذي يُمثّل قيمة حقيقية له.</p>
+        </div>
+
+        <div class="def-box">
+          <div class="def-label">تعريف — ديفيد هنجر وتوماس ويلن</div>
+          <p class="def-text">الرسالة هي الغرض أو السبب الذي يُبرّر وجود المؤسسة؛ إنها تُخبر العالم بما تفعله المؤسسة وما الذي تُقدّمه من قيمة لا يمكن الاستغناء عنها.</p>
+        </div>
+      </div>
+
+      <div class="subsection" id="s2-mukawinat">
+        <h3 class="subsection-title">مكوّنات بيان الرسالة الجيدة</h3>
+        <p class="body-text">
+          تتضمن الرسالة الاستراتيجية المتكاملة — وفق ما يُرسيه أبرز الباحثين في الإدارة الاستراتيجية — تسعة مكوّنات جوهرية تُغطي أبعاداً مختلفة لهوية المؤسسة:
+        </p>
+
+        <div class="info-grid">
+          <div class="info-cell">
+            <div class="info-cell-label">1 — العملاء</div>
+            <p class="info-cell-text">من هم الزبائن المستهدفون؟ أي شرائح السوق تستهدفها المؤسسة بالدرجة الأولى؟</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">2 — المنتجات والخدمات</div>
+            <p class="info-cell-text">ما طبيعة المنتجات أو الخدمات التي تُقدّمها المؤسسة؟ وما القيمة التي تُضيفها لعملائها؟</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">3 — السوق والجغرافيا</div>
+            <p class="info-cell-text">أين تنشط المؤسسة جغرافياً؟ هل هي محلية، إقليمية، أم عالمية؟</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">4 — التكنولوجيا</div>
+            <p class="info-cell-text">ما مستوى اعتماد المؤسسة على التكنولوجيا وما توجهاتها في التطور التكنولوجي؟</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">5 — الاهتمام بالبقاء والنمو</div>
+            <p class="info-cell-text">ما هو التزام المؤسسة تجاه النمو والاستدامة المالية على المدى البعيد؟</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">6 — الفلسفة والقيم</div>
+            <p class="info-cell-text">ما القيم والأخلاقيات والمعتقدات التي تُشكّل ثقافة المؤسسة وتوجّه سلوكها؟</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">7 — الميزة التنافسية</div>
+            <p class="info-cell-text">ما الذي يُميّز المؤسسة عن منافسيها؟ ما مصدر تفوّقها في السوق؟</p>
+          </div>
+          <div class="info-cell">
+            <div class="info-cell-label">8 — الاهتمام بالمجتمع</div>
+            <p class="info-cell-text">ما مسؤولية المؤسسة تجاه المجتمع والبيئة؟ وكيف تُقدّم نفسها كمواطن مؤسسي؟</p>
+          </div>
+        </div>
+
+        <div class="note-box green">
+          <div class="note-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+          <p class="note-text"><strong>ليس من الضروري</strong> أن تحتوي كل رسالة على المكوّنات التسعة جميعاً، لكن الرسالة الأكثر اكتمالاً تُغطي الجزء الأكبر منها. المهم هو أن تعكس الرسالة <strong>شخصية المؤسسة الحقيقية</strong> لا مجرد صياغات إنشائية جذابة لا تعكس الواقع.</p>
+        </div>
+      </div>
+
+      <div class="subsection" id="s2-farq">
+        <h3 class="subsection-title">الفرق بين الرؤية والرسالة</h3>
+        <p class="body-text">
+          يُخلط كثيرون بين الرؤية والرسالة، وهو خلط يُفسد العمل الاستراتيجي. الفرق الجوهري بينهما يتضح في المخطط التالي:
+        </p>
+
+        <div class="vm-diagram">
+          <div class="vm-box vision">
+            <div class="vm-box-tag">الرؤية — Vision</div>
+            <div class="vm-box-title">صورة المستقبل</div>
+            <div class="vm-box-text">
+              <ul>
+                <li>تُجيب عن: إلى أين نريد الوصول؟</li>
+                <li>توجّهها المستقبل البعيد (5–20 سنة)</li>
+                <li>تُلهم وتُحفّز الطموح</li>
+                <li>ثابتة نسبياً عبر الزمن</li>
+                <li>خيالية وطموحة بطبيعتها</li>
+              </ul>
+            </div>
+          </div>
+          <div class="vm-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m0 0l7 7m-7-7l7-7"/></svg>
+          </div>
+          <div class="vm-box mission">
+            <div class="vm-box-tag">الرسالة — Mission</div>
+            <div class="vm-box-title">غرض الوجود الحالي</div>
+            <div class="vm-box-text">
+              <ul>
+                <li>تُجيب عن: لماذا نوجد الآن؟</li>
+                <li>موجِّهها الحاضر والمدى المتوسط</li>
+                <li>تُعرِّف وتُوضح الهوية</li>
+                <li>تتطور مع تطوّر أعمال المؤسسة</li>
+                <li>واقعية وعملية بطبيعتها</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <table class="compare-table" style="margin-top: 16px;">
+          <thead>
+            <tr>
+              <th>وجه المقارنة</th>
+              <th>الرؤية</th>
+              <th>الرسالة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>السؤال الجوهري</td>
+              <td>إلى أين نريد الوصول؟</td>
+              <td>لماذا نوجد؟ وماذا نقدم؟</td>
+            </tr>
+            <tr>
+              <td>الأفق الزمني</td>
+              <td>المدى البعيد جداً (10–20 سنة)</td>
+              <td>الحاضر والمدى المتوسط</td>
+            </tr>
+            <tr>
+              <td>الطابع</td>
+              <td>تطلعي ومُلهِم</td>
+              <td>تعريفي وتوضيحي</td>
+            </tr>
+            <tr>
+              <td>الجمهور المستهدف</td>
+              <td>أفراد المؤسسة بالدرجة الأولى</td>
+              <td>جميع أصحاب المصلحة (العملاء، الموظفون، المجتمع)</td>
+            </tr>
+            <tr>
+              <td>درجة الثبات</td>
+              <td>ثابتة لعقود</td>
+              <td>تتطور مع نمو المؤسسة</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- =================== SECTION 3 — VALUES =================== -->
+    <div class="section-block" id="section-3">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">القيم المؤسسية (Organizational Values)</h2>
+      </div>
+
+      <div class="subsection" id="s3-tarif">
+        <h3 class="subsection-title">مفهوم القيم المؤسسية</h3>
+        <p class="body-text">
+          القيم المؤسسية هي <strong>المبادئ الجوهرية والمعتقدات الراسخة</strong> التي تُحدد الطريقة التي تتصرف بها المؤسسة وتتخذ قراراتها وتتعامل مع الآخرين. إنها "الضمير الأخلاقي" للمؤسسة الذي يبقى ثابتاً حتى حين تتغيّر الاستراتيجيات والأهداف.
+        </p>
+
+        <div class="def-box">
+          <div class="def-label">تعريف — كولينز وبوراس (1994)</div>
+          <p class="def-text">القيم الجوهرية هي المبادئ الراسخة والدائمة التي لا تخضع للتبرير الخارجي، والتي تمتلك قيمة جوهرية دائمة بالنسبة للمؤسسة بصرف النظر عن أي اعتبارات تجارية أو ضغوط خارجية.</p>
+        </div>
+
+        <p class="body-text">
+          تؤدي القيم دوراً محورياً في الحياة المؤسسية: فهي تُوجّه قرارات التوظيف والترقية، وتُحدد طريقة التعامل مع العملاء، وترسم حدود ما هو مقبول وغير مقبول أخلاقياً داخل المؤسسة. المؤسسات التي لا تمتلك قيماً واضحة تتخبّط في مواجهة المعضلات الأخلاقية وتفقد ثقة أصحاب المصلحة.
+        </p>
+      </div>
+
+      <div class="subsection" id="s3-anwaa">
+        <h3 class="subsection-title">أنواع القيم المؤسسية وأمثلتها</h3>
+
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-item-icon">⚖️</div>
+            <div class="value-item-name">النزاهة والأمانة</div>
+            <div class="value-item-desc">الالتزام بالصدق والشفافية في كل التعاملات الداخلية والخارجية. أساس الثقة مع الزبائن والشركاء.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-item-icon">💡</div>
+            <div class="value-item-name">الابتكار والإبداع</div>
+            <div class="value-item-desc">تشجيع التفكير خارج الصندوق وقبول المخاطرة المحسوبة في سبيل إيجاد حلول جديدة وقيمة مضافة.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-item-icon">🤝</div>
+            <div class="value-item-name">خدمة العملاء</div>
+            <div class="value-item-desc">جعل رضا العميل وتجربته في صميم كل قرار، وتقديم الجودة والاهتمام على حساب الربح الآني.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-item-icon">🌍</div>
+            <div class="value-item-name">المسؤولية الاجتماعية</div>
+            <div class="value-item-desc">الالتزام بالمصلحة الأشمل للمجتمع والبيئة، وليس فقط تعظيم الأرباح للمساهمين.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-item-icon">🏆</div>
+            <div class="value-item-name">التميّز والجودة</div>
+            <div class="value-item-desc">السعي الدائم لأداء كل مهمة على أعلى مستوى ممكن ورفض الاستكانة للمتوسط والمقبول.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-item-icon">👥</div>
+            <div class="value-item-name">التعاون والعمل الجماعي</div>
+            <div class="value-item-desc">الإيمان بأن الإنجاز الجماعي يتفوق على العمل الفردي، وتنمية ثقافة الدعم المتبادل والتكامل.</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg></div>
+          <p class="note-text"><strong>القيم المُعلنة مقابل القيم الحقيقية:</strong> كثير من المؤسسات تمتلك "قيماً مكتوبة" لا تعكس سلوكها الفعلي. الاختبار الحقيقي للقيم يظهر في لحظات الأزمة: حين يواجه المدير خياراً بين تحقيق الربح وبين احترام مبدأ أخلاقي — ما الذي يختار؟ هذا هو ميزان القيم الحقيقي.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== SECTION 4 — OBJECTIVES =================== -->
+    <div class="section-block" id="section-4">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">الأهداف الاستراتيجية (Strategic Objectives)</h2>
+      </div>
+
+      <div class="subsection" id="s4-tarif">
+        <h3 class="subsection-title">تعريف الأهداف الاستراتيجية</h3>
+        <p class="body-text">
+          الأهداف الاستراتيجية هي <strong>التحديد الملموس والقابل للقياس</strong> للنتائج التي تسعى المؤسسة إلى تحقيقها في إطار زمني محدد، بما ينسجم مع رؤيتها ورسالتها وقيمها. إنها تُحوّل الطموح المجرد إلى التزامات عملية وخطوات قابلة للمتابعة والتقييم.
+        </p>
+
+        <div class="def-box">
+          <div class="def-label">تعريف جامع</div>
+          <p class="def-text">الأهداف الاستراتيجية هي النتائج الكمية والنوعية المحددة التي تسعى المؤسسة إلى بلوغها في أفق زمني معيّن، والتي تُشكّل الركيزة التي تُبنى عليها الاستراتيجيات والخطط التشغيلية وتُقاس من خلالها الأداءات الفعلية.</p>
+        </div>
+
+        <p class="body-text">
+          تُمثّل الأهداف الحلقة الرابطة بين التوجه الاستراتيجي العام والأداء الفعلي اليومي. بدون أهداف واضحة، تبقى الرؤية والرسالة في عالم التجريد وتفقد قيمتها التشغيلية.
+        </p>
+      </div>
+
+      <div class="subsection" id="s4-smart">
+        <h3 class="subsection-title">معيار SMART للأهداف الفعّالة</h3>
+        <p class="body-text">
+          وضع جورج دوران عام 1981 إطاراً بالغ الأثر لقياس جودة الأهداف الاستراتيجية، عُرف بمعيار <strong>SMART</strong>. هدف لا يستوفي هذه المعايير الخمسة لا يُعدّ هدفاً استراتيجياً ناضجاً بل مجرد أمنية:
+        </p>
+
+        <div class="smart-grid">
+          <div class="smart-cell">
+            <div class="smart-letter">S</div>
+            <div class="smart-word">Specific — محدد</div>
+            <div class="smart-desc">يُصف بوضوح ما يجب تحقيقه، دون غموض أو تفسيرات متعددة</div>
+          </div>
+          <div class="smart-cell">
+            <div class="smart-letter">M</div>
+            <div class="smart-word">Measurable — قابل للقياس</div>
+            <div class="smart-desc">يمكن تحديد مستوى التقدم نحوه بمؤشرات رقمية أو معايير قابلة للملاحظة</div>
+          </div>
+          <div class="smart-cell">
+            <div class="smart-letter">A</div>
+            <div class="smart-word">Achievable — قابل للتحقيق</div>
+            <div class="smart-desc">طموح لكن واقعي، يمكن بلوغه بالموارد والقدرات المتاحة أو القابلة للحصول عليها</div>
+          </div>
+          <div class="smart-cell">
+            <div class="smart-letter">R</div>
+            <div class="smart-word">Relevant — ذو صلة</div>
+            <div class="smart-desc">منسجم مع الرؤية والرسالة والأولويات الاستراتيجية الكبرى للمؤسسة</div>
+          </div>
+          <div class="smart-cell">
+            <div class="smart-letter">T</div>
+            <div class="smart-word">Time-bound — محدد زمنياً</div>
+            <div class="smart-desc">له إطار زمني واضح للإنجاز: تاريخ بداية ونهاية ومراحل وسيطة للمتابعة</div>
+          </div>
+        </div>
+
+        <div class="note-box green">
+          <div class="note-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+          <p class="note-text"><strong>مثال عملي:</strong> هدف من نوع "تحسين المبيعات" ليس SMART. أما هدف "زيادة رقم مبيعات قسم المنتجات الرقمية بنسبة 25% خلال السنة المالية 2025، مع تحقيق 15% منها في النصف الأول" — فهذا هدف SMART كامل المعايير.</p>
+        </div>
+      </div>
+
+      <div class="subsection" id="s4-mustawayat">
+        <h3 class="subsection-title">مستويات الأهداف في المؤسسة</h3>
+        <p class="body-text">
+          تتدرج الأهداف في المؤسسة تبعاً لمستوى اتخاذ القرار، وكل مستوى يُجزّئ الأهداف الأعلى منه إلى مهام أكثر تفصيلاً وعمليةً:
+        </p>
+
+        <div class="levels-flow">
+          <div class="level-row">
+            <div class="level-label"><span>الأهداف الكبرى</span></div>
+            <div class="level-content">
+              <div class="level-badge badge-navy">1</div>
+              <div class="level-content-inner">
+                <strong>الأهداف الاستراتيجية الكبرى (Corporate Goals):</strong> تُصاغ على مستوى المؤسسة ككل من قِبَل الإدارة العليا. مثال: "أن نصبح الشركة الرائدة في السوق الإقليمية بحلول عام 2028 بحصة سوقية لا تقل عن 30%."
+              </div>
+            </div>
+          </div>
+          <div class="level-row">
+            <div class="level-label"><span>أهداف وحدات الأعمال</span></div>
+            <div class="level-content">
+              <div class="level-badge badge-gold">2</div>
+              <div class="level-content-inner">
+                <strong>الأهداف التكتيكية (Tactical Goals):</strong> تُحدد على مستوى وحدات الأعمال وتُعبّر عن مساهمة كل وحدة في الهدف الكبير. مثال: "تطوير ثلاثة منتجات جديدة في السنة، زيادة رضا العملاء بنسبة 15% سنوياً."
+              </div>
+            </div>
+          </div>
+          <div class="level-row">
+            <div class="level-label"><span>الأهداف الوظيفية</span></div>
+            <div class="level-content">
+              <div class="level-badge badge-green">3</div>
+              <div class="level-content-inner">
+                <strong>الأهداف التشغيلية (Operational Goals):</strong> تُحدد على مستوى الأقسام والفرق وتُوجّه العمل اليومي. مثال: "تقليص وقت معالجة الشكاوى إلى أقل من 48 ساعة، تحقيق صفر أخطاء في عمليات التسليم للربع الأول."
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== SECTION 5 — INTEGRATION =================== -->
+    <div class="section-block" id="section-5">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">التكامل بين عناصر الاتجاه الاستراتيجي</h2>
+      </div>
+
+      <p class="body-text">
+        الخطأ الأكثر شيوعاً في الممارسة الاستراتيجية هو التعامل مع الرؤية والرسالة والقيم والأهداف كوثائق مستقلة تُكتب لمرة واحدة ثم تُنسى في أدراج الأرشيف. الحقيقة أن هذه العناصر <strong>منظومة حية متكاملة</strong>، كل عنصر فيها يُغذّي ما دونه ويُستمد مشروعيته مما فوقه.
+      </p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>العنصر</th>
+            <th>السؤال الجوهري</th>
+            <th>الأفق الزمني</th>
+            <th>الوظيفة الاستراتيجية</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>الرؤية</td>
+            <td>إلى أين نريد الوصول؟</td>
+            <td>10 – 20 سنة</td>
+            <td>الإلهام والتوجيه الكبير</td>
+          </tr>
+          <tr>
+            <td>الرسالة</td>
+            <td>لماذا نوجد ولمن نخدم؟</td>
+            <td>المدى المتوسط</td>
+            <td>تحديد الهوية ومجال النشاط</td>
+          </tr>
+          <tr>
+            <td>القيم</td>
+            <td>ما الذي يُوجّه سلوكنا؟</td>
+            <td>دائمة — لا تتغيّر</td>
+            <td>ضبط السلوك والثقافة المؤسسية</td>
+          </tr>
+          <tr>
+            <td>الأهداف</td>
+            <td>ماذا نريد تحقيقه بدقة؟</td>
+            <td>1 – 5 سنوات</td>
+            <td>توجيه الأداء وقياسه</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="quote-box">
+        <p class="quote-text">المؤسسة التي تعرف لماذا توجد ستتغلّب دوماً على التي تعرف فقط ماذا تصنع وكيف تصنعه.</p>
+        <div class="quote-source">— سيمون سينك، ابدأ بـ"لماذا"، 2009</div>
+      </div>
+
+      <div class="note-box">
+        <div class="note-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg></div>
+        <p class="note-text"><strong>مبدأ التوافق الاستراتيجي (Strategic Alignment):</strong> تحقيق التوافق الاستراتيجي يعني أن <strong>كل قرار</strong> في المؤسسة — من سياسة التوظيف إلى تصميم المنتج إلى سعر البيع — يمكن تبريره بالرجوع إلى أحد عناصر الاتجاه الاستراتيجي. حين يتعارض قرار ما مع الرؤية أو القيم، فهذا مؤشر جوهري على وجود خلل يستدعي المراجعة.</p>
+      </div>
+    </div>
+
+    <!-- =================== SECTION 6 — SUMMARY =================== -->
+    <div class="section-block" id="section-6">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">خلاصة المحور</h2>
+      </div>
+
+      <div class="summary-box">
+        <div class="summary-title">أبرز ما يجب استيعابه من المحور الثاني</div>
+        <ul class="summary-points">
+          <li>الاتجاه الاستراتيجي يتشكّل من أربعة عناصر مترابطة: الرؤية، الرسالة، القيم، والأهداف الاستراتيجية — كل عنصر يُكمل ما قبله ويوجّه ما بعده.</li>
+          <li>الرؤية تُجيب عن "إلى أين نريد الوصول؟" وهي صورة مستقبلية طموحة ذات أفق زمني بعيد (10–20 سنة).</li>
+          <li>الرسالة تُجيب عن "لماذا نوجد؟" وتُحدد هوية المؤسسة ومجال نشاطها ومن يخدمها.</li>
+          <li>الفرق الجوهري بين الرؤية والرسالة: الرؤية مستقبلية وإلهامية، أما الرسالة فهي حاضرية وتعريفية.</li>
+          <li>القيم المؤسسية هي المبادئ الجوهرية الثابتة التي توجّه السلوك والقرارات — القيم الحقيقية تظهر في لحظات الاختيار الصعب.</li>
+          <li>الأهداف الاستراتيجية الفعّالة تستوفي معيار SMART: محددة، قابلة للقياس، قابلة للتحقيق، ذات صلة، محددة زمنياً.</li>
+          <li>تتدرج الأهداف في المؤسسة من الأهداف الكبرى (مؤسسية) إلى التكتيكية (وحدات أعمال) إلى التشغيلية (أقسام وفرق).</li>
+          <li>مبدأ التوافق الاستراتيجي يعني أن كل قرار في المؤسسة يمكن تبريره بالرجوع إلى أحد عناصر الاتجاه الاستراتيجي.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lesson Navigation -->
+    <div class="lesson-nav">
+      <a href="lesson-1.html" class="lesson-nav-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        المحور السابق: تطور الفكر الإستراتيجي
+      </a>
+      <a href="lesson-3.html" class="lesson-nav-btn">
+        المحور التالي: التحليل البيئي
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<!-- Footer -->
+<footer>
+  <span class="footer-brand">جامعة باتنة 1</span>
+  <ul class="footer-links">
+    <li><a href="../../../pages/about.html">عن المنصة</a></li>
+    <li><a href="../../../pages/contact.html">التواصل</a></li>
+  </ul>
+</footer>
 
 </body>
 </html>
